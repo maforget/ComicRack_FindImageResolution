@@ -45,7 +45,7 @@ namespace FindImageResolution.Dialog
 
             pbCover.SafeInvoke(x => x.Image = image);
             lblText.SafeInvoke(x => x.Text = $"{serie}{(number == "-1" ? string.Empty : " #" + number)}");
-            OnBookUpdated(EventArgs.Empty);
+            OnBookUpdated();
         }
 
         public void IncreaseProgressBarByOne()
@@ -54,9 +54,9 @@ namespace FindImageResolution.Dialog
             btnCancel.SafeInvoke(x => x.Text = $"Cancel ({progressBar.Maximum - progressBar.Value} remaining)");
         }
 
-        protected virtual void OnBookUpdated(EventArgs e)
+        protected virtual void OnBookUpdated()
         {
-            BookUpdated?.Invoke(this, e);
+            BookUpdated?.Invoke(this, EventArgs.Empty);
         }
 
         protected virtual void OnCancelPressed(EventArgs e)
