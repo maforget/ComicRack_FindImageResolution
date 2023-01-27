@@ -8,12 +8,15 @@ namespace FindImageResolution
 {
     enum FieldsEnum
     {
-        ScanInformation,
-        Notes,
-        Summary,
-        Review,
-        Genre,
+        BookLocation,
+        BookNotes,
+        CollectionStatus,
         Format,
-        Locations,
+        Genre,
+        Notes,
+        Review,
+        ScanInformation,
+        Summary,
+        Tags
     }
 }
