@@ -121,7 +121,7 @@ namespace FindImageResolution
                 bool IsCustom = config.Custom;
                 string key = IsCustom ? config.CustomField : config.Field;
 
-                if (!token.IsCancellationRequested && e.TryParse(config.Text, out string value))
+                if (!token.IsCancellationRequested && e.TryParse(config.Text, out string value) && !string.IsNullOrEmpty(value))
                 {
                     if (DoAppend)
                         _CurrentBook.AppendStringValue(key, value, IsCustom);

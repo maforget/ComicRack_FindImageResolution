@@ -43,7 +43,9 @@ namespace FindImageResolution.Dialog
             if (Token.IsCancellationRequested)
                 Token.ThrowIfCancellationRequested();
 
-            pbCover.SafeInvoke(x => x.Image = image);
+            if (image != null)
+                pbCover.SafeInvoke(x => x.Image = image);
+
             lblText.SafeInvoke(x => x.Text = $"{serie}{(number == "-1" ? string.Empty : " #" + number)}");
             OnBookUpdated();
         }

@@ -53,7 +53,14 @@ namespace FindImageResolution.Tools
 
         public static object InvokeMethod(this object sourceObject, string Method, params object[] param)
         {
-            return sourceObject.GetType().GetMethod(Method).Invoke(sourceObject, param);
+            try
+            {
+                return sourceObject.GetType().GetMethod(Method).Invoke(sourceObject, param);
+            }
+            catch (Exception)
+            { 
+                return null; 
+            }
         }
     }
 }
