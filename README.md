@@ -1,4 +1,4 @@
-﻿# Amazon Scrapper for ComicRack
+﻿# Find Image Resolution for ComicRack
 
 <p align="center">
     <b><u><span style='font-size:14.0pt'>👇 Download Links 👇</span></u></b>
