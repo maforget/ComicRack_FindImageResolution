@@ -13,7 +13,9 @@
 #### This plugin will check the resolution of the images inside a book and get the value for the one that occurs the most,
 
 Configuration are in File => Automation => Find Image Resolution (.NET) Config.
+
 Usage is done via Right-Click => Automation => Find Image Resolution (.NET).
+
 
 Normally ComicRack plugins uses IronPython (a mixture of Python & .NET Framework). This is now obsolete and very hard to develop & debug for, so this plugin is made from scratch completely with the .NET Framework. The only python code is to call the .NET Code (1 line).
 
