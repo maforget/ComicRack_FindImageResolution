@@ -44,7 +44,7 @@ namespace FindImageResolution.ComicRack
 
         public static object CheckNewLine(object value, bool NewLine, string existingValue)
         {
-            string newLine = NewLine && !string.IsNullOrEmpty(existingValue) ? Environment.NewLine + Environment.NewLine : string.Empty;
+            string newLine = NewLine && !string.IsNullOrEmpty(existingValue) ? Environment.NewLine + Environment.NewLine : " ";
             return value is string ? $"{existingValue}{newLine}{(string)value}" : value;
         }
     }
