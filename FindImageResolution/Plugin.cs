@@ -19,25 +19,32 @@ namespace FindImageResolution
 
         public static void Run(object ComicRackApp, object[] books)
         {
-            if (ComicRackApp == null || books?.Length <= 0)
-                return;
-
-            _ComicRackApp = new App(ComicRackApp);
-            _Books = new BookCollection(books);
-            _frmProgress = new frmProgress(_Books.Length);
-            _CurrentBook = new CurrentBook();
-
             try
             {
+                if (ComicRackApp == null || books?.Length <= 0)
+                    return;
+
+                _ComicRackApp = new App(ComicRackApp);
+                _Books = new BookCollection(books);
+                _frmProgress = new frmProgress(_Books.Length);
+                _CurrentBook = new CurrentBook();
+
                 _frmProgress.ShowDialog();
             }
             catch (OperationCanceledException)
             {
-                
+
             }
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                _frmProgress?.Dispose();
+                _Books = null;
+                _CurrentBook = null;
+                GC.Collect();
             }
         }
 
