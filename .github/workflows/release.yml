@@ -30,7 +30,7 @@ jobs:
       run: msbuild FindImageResolution\FindImageResolution.csproj -t:rebuild -property:Configuration=Release
       
     - name: Package Files
-      run: powershell Compress-Archive -Path 'FindImageResolution\bin\Release\FindImageResolution.dll', 'Python\*.ini', 'Python\*.py' -DestinationPath 'FindImageResolution.zip' -Force
+      run: powershell Compress-Archive -Path 'FindImageResolution\bin\Release\FindImageResolution.exe', 'Python\*.ini', 'Python\*.py' -DestinationPath 'FindImageResolution.zip' -Force
          
     - name: Rename to crplugin
       run: ren  FindImageResolution.zip FindImageResolution.crplugin

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C21BE3E4-D77F-4141-B3C2-4F9B62A7DA38}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>FindImageResolution</RootNamespace>
     <AssemblyName>FindImageResolution</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -24,12 +24,14 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +72,7 @@
     <Compile Include="BookImageResolution.cs" />
     <Compile Include="ComicRack\ComicPageInfo.cs" />
     <Compile Include="ComicRack\ObjectBase.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Setting\Config.cs" />
     <Compile Include="Setting\Fields.cs" />
     <Compile Include="Setting\Utility.cs" />
@@ -126,7 +129,7 @@ ren "%25UserProfile%25\Desktop\$(TargetName).zip" $(TargetName).crplugin
 )
 
 if $(ConfigurationName) == DEV (
-xcopy /s /y "$(TargetDir)*.dll" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
+xcopy /s /y "$(TargetDir)*.exe" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
 xcopy /s /y "$(TargetDir)*.pdb" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
 xcopy /s /y "$(SolutionDir)Python\*.py" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
 xcopy /s /y "$(SolutionDir)Python\*.ini" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
