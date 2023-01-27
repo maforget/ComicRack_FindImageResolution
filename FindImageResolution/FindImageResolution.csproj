@@ -126,10 +126,10 @@ ren "%25UserProfile%25\Desktop\$(TargetName).zip" $(TargetName).crplugin
 )
 
 if $(ConfigurationName) == DEV (
-xcopy /s /y "$(TargetDir)*.dll" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution\"
-xcopy /s /y "$(TargetDir)*.pdb" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution\"
-xcopy /s /y "$(SolutionDir)Python\*.py" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution\"
-xcopy /s /y "$(SolutionDir)Python\*.ini" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution\"
+xcopy /s /y "$(TargetDir)*.dll" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
+xcopy /s /y "$(TargetDir)*.pdb" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
+xcopy /s /y "$(SolutionDir)Python\*.py" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
+xcopy /s /y "$(SolutionDir)Python\*.ini" "$(SolutionDir)..\ComicRack\ComicRack\bin\Release\Data\Scripts\Find Image Resolution (.NET)\"
 )</PostBuildEvent>
   </PropertyGroup>
 </Project>
