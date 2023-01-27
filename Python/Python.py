@@ -17,8 +17,8 @@ from cYo.Projects.ComicRack.Engine import *
 #@Enabled	true
 #@Hook	Library
 def Config(books):
-	frm = frmConfig()
-	frm.ShowDialog()
+    frm = frmConfig()
+    frm.ShowDialog()
 
 #@Name	Find Image Resolution (.NET)
 #@Key	FindImageResolutionNET
@@ -26,8 +26,8 @@ def Config(books):
 #@Enabled	true
 #@Description	Find the resolution of the images inside a book
 def Process(books):
-	try:
-		Plugin.Run(ComicRack.App, books)
-	except Exception as e:
-		print('Generic Exception: ', e)
-		return
+    try:
+        Plugin.Run(ComicRack.App, books)
+    except Exception as e:
+        print('Generic Exception: ', e)
+        return
