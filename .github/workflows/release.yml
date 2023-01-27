@@ -1,0 +1,44 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+  
+    - name: Restore Packages
+      run: nuget restore FindImageResolution.sln
+
+    - name: Build solution
+      run: msbuild FindImageResolution\FindImageResolution.csproj -t:rebuild -property:Configuration=Release
+      
+    - name: Package Files
+      run: powershell Compress-Archive -Path 'FindImageResolution\bin\Release\FindImageResolution.exe', 'Python\*.ini', 'Python\*.py' -DestinationPath 'FindImageResolution.zip' -Force
+         
+    - name: Rename to crplugin
+      run: ren  FindImageResolution.zip FindImageResolution.crplugin
+      
+    - name: Release
+      uses: softprops/action-gh-release@master
+      with:
+        #body: ${{steps.build_changelog.outputs.changelog}}
+        draft: true
+        prerelease: false
+        files: AmazonScrapper.crplugin
