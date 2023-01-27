@@ -24,8 +24,9 @@ namespace FindImageResolution.Dialog
             var fields = Config.ReadUserFromFile();
             if (Enum.TryParse(fields.Field, true, out FieldsEnum field))
                 cmbFields.SelectedItem = field;
-            
+
             cbAppend.Checked = fields.Append;
+            cbNewline.Checked = fields.Newline;
             rbCustom.Checked = fields.Custom;
             rbField.Checked = !fields.Custom;
             txtCustom.Text = fields.CustomField;
@@ -66,6 +67,7 @@ namespace FindImageResolution.Dialog
             Fields fields = new Fields()
             {
                 Append = cbAppend.Checked,
+                Newline = cbNewline.Checked,
                 Custom = rbCustom.Checked,
                 CustomField = txtCustom.Text,
                 Text = txtText.Text,
@@ -73,6 +75,11 @@ namespace FindImageResolution.Dialog
             };
             Config.WriteUserToFile(fields);
             this.Close();
+        }
+
+        private void cbAppend_CheckedChanged(object sender, EventArgs e)
+        {
+            cbNewline.Enabled = cbAppend.Checked;
         }
     }
 }

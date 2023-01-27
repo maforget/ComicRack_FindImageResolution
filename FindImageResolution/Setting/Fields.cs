@@ -14,6 +14,9 @@ namespace FindImageResolution.Setting
         public bool Append { get; set; } = false;
 
         [IniParam(Default = false)]
+        public bool Newline { get; set; } = false;
+
+        [IniParam(Default = false)]
         public bool Custom { get; set; } = false;
 
         [IniParam(Default = "")]

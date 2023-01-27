@@ -124,7 +124,7 @@ namespace FindImageResolution
                 if (!token.IsCancellationRequested && e.TryParse(config.Text, out string value) && !string.IsNullOrEmpty(value))
                 {
                     if (DoAppend)
-                        _CurrentBook.AppendStringValue(key, value, IsCustom);
+                        _CurrentBook.AppendStringValue(key, value, IsCustom, config.Newline);
                     else
                         _CurrentBook.SetStringValue(key, value, IsCustom);
                 }

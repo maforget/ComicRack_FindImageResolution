@@ -44,6 +44,7 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsiHeight = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiWidth = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbNewline = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -160,6 +161,7 @@
             this.cbAppend.TabIndex = 5;
             this.cbAppend.Text = "Append";
             this.cbAppend.UseVisualStyleBackColor = true;
+            this.cbAppend.CheckedChanged += new System.EventHandler(this.cbAppend_CheckedChanged);
             // 
             // menuStrip1
             // 
@@ -215,6 +217,18 @@
             this.tsiWidth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiWidth.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
+            // cbNewline
+            // 
+            this.cbNewline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbNewline.AutoSize = true;
+            this.cbNewline.Enabled = false;
+            this.cbNewline.Location = new System.Drawing.Point(81, 140);
+            this.cbNewline.Name = "cbNewline";
+            this.cbNewline.Size = new System.Drawing.Size(64, 17);
+            this.cbNewline.TabIndex = 8;
+            this.cbNewline.Text = "Newline";
+            this.cbNewline.UseVisualStyleBackColor = true;
+            // 
             // frmConfig
             // 
             this.AcceptButton = this.btnOk;
@@ -222,6 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(403, 171);
+            this.Controls.Add(this.cbNewline);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.cbAppend);
             this.Controls.Add(this.groupBox1);
@@ -263,5 +278,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem tsiHeight;
         private System.Windows.Forms.ToolStripMenuItem tsiWidth;
+        private System.Windows.Forms.CheckBox cbNewline;
     }
 }
