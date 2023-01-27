@@ -201,7 +201,7 @@
             // 
             this.tsiHeight.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsiHeight.Name = "tsiHeight";
-            this.tsiHeight.Size = new System.Drawing.Size(180, 22);
+            this.tsiHeight.Size = new System.Drawing.Size(110, 22);
             this.tsiHeight.Text = "Height";
             this.tsiHeight.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiHeight.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -210,7 +210,7 @@
             // 
             this.tsiWidth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsiWidth.Name = "tsiWidth";
-            this.tsiWidth.Size = new System.Drawing.Size(180, 22);
+            this.tsiWidth.Size = new System.Drawing.Size(110, 22);
             this.tsiWidth.Text = "Width";
             this.tsiWidth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiWidth.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -230,7 +230,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmConfig";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Config";
             this.Load += new System.EventHandler(this.frmConfig_Load);
