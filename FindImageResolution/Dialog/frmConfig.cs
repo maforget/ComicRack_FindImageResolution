@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FindImageResolutionNET.Setting;
 
-namespace FindImageResolutionNET.Dialog
+namespace FindImageResolutionNET
 {
     public partial class frmConfig : Form
     {

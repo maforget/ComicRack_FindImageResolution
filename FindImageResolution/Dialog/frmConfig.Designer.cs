@@ -1,4 +1,4 @@
-﻿namespace FindImageResolutionNET.Dialog
+﻿namespace FindImageResolutionNET
 {
     partial class frmConfig
     {

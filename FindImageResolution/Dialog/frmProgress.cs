@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using FindImageResolutionNET.Tools;
 //using AmazonScrapper.Web;
 
-namespace FindImageResolutionNET.Dialog
+namespace FindImageResolutionNET
 {
     public partial class frmProgress : Form
     {

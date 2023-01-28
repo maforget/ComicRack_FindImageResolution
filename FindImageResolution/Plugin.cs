@@ -1,5 +1,4 @@
 ﻿using FindImageResolutionNET.ComicRack;
-using FindImageResolutionNET.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;

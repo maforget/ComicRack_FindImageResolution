@@ -18,7 +18,7 @@ namespace FindImageResolutionNET
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dialog.frmConfig());
+            Application.Run(new frmConfig());
         }
     }
 }
