@@ -1,14 +1,14 @@
-﻿using FindImageResolution.ComicRack;
-using FindImageResolution.Dialog;
+﻿using FindImageResolutionNET.ComicRack;
+using FindImageResolutionNET.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FindImageResolution.Setting;
+using FindImageResolutionNET.Setting;
 
-namespace FindImageResolution
+namespace FindImageResolutionNET
 {
     public class Plugin
     {

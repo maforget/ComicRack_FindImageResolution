@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace FindImageResolution.ComicRack
+namespace FindImageResolutionNET.ComicRack
 {
     public class Book : ObjectBase
     {

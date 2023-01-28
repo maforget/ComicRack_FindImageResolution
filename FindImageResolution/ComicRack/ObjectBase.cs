@@ -1,4 +1,4 @@
-﻿using FindImageResolution.Tools;
+﻿using FindImageResolutionNET.Tools;
 using System;
 using System.Reflection;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Collections;
 using System.Xml.Linq;
 using System.Runtime.CompilerServices;
 
-namespace FindImageResolution.ComicRack
+namespace FindImageResolutionNET.ComicRack
 {
     public class ObjectBase
     {

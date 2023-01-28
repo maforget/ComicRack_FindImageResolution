@@ -7,11 +7,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using FindImageResolution.ComicRack;
-using FindImageResolution.Tools;
+using FindImageResolutionNET.ComicRack;
+using FindImageResolutionNET.Tools;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace FindImageResolution
+namespace FindImageResolutionNET
 {
     public class BookImageResolution
     {

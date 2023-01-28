@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FindImageResolution.ComicRack
+namespace FindImageResolutionNET.ComicRack
 {
     public class App : ObjectBase
     {

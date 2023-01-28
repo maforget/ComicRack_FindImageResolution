@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C21BE3E4-D77F-4141-B3C2-4F9B62A7DA38}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FindImageResolution</RootNamespace>
-    <AssemblyName>FindImageResolution</AssemblyName>
+    <RootNamespace>FindImageResolutionNET</RootNamespace>
+    <AssemblyName>FindImageResolutionNET</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -104,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

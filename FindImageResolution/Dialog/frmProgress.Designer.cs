@@ -1,4 +1,4 @@
-﻿namespace FindImageResolution.Dialog
+﻿namespace FindImageResolutionNET.Dialog
 {
     partial class frmProgress
     {

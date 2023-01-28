@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FindImageResolution.Tools;
+using FindImageResolutionNET.Tools;
 //using AmazonScrapper.Web;
 
-namespace FindImageResolution.Dialog
+namespace FindImageResolutionNET.Dialog
 {
     public partial class frmProgress : Form
     {

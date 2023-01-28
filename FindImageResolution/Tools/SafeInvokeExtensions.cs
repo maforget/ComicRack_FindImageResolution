@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace FindImageResolution.Tools
+namespace FindImageResolutionNET.Tools
 {
     public static class SafeInvokeExtensions
     {

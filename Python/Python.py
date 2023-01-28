@@ -7,9 +7,9 @@ from System.Windows.Forms import *
 clr.AddReference('System.Drawing')
 from System.Drawing import *
 
-clr.AddReference('FindImageResolution')
-from FindImageResolution.Dialog import frmConfig
-from FindImageResolution import Plugin
+clr.AddReference('FindImageResolutionNET')
+from FindImageResolutionNET.Dialog import frmConfig
+from FindImageResolutionNET import Plugin
 
 from cYo.Projects.ComicRack.Engine import *
 

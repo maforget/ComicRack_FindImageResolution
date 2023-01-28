@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BetterINI;
 
-namespace FindImageResolution.Setting
+namespace FindImageResolutionNET.Setting
 {
     [IniSection("Fields")]
     public class Fields

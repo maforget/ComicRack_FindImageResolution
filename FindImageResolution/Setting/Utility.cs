@@ -9,7 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 
-namespace FindImageResolution.Setting
+namespace FindImageResolutionNET.Setting
 {
     public static class Utility
     {

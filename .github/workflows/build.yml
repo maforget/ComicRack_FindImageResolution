@@ -31,10 +31,10 @@ jobs:
       run: msbuild FindImageResolution\FindImageResolution.csproj -t:rebuild -property:Configuration=Release
       
     - name: Package Files
-      run: powershell Compress-Archive -Path 'FindImageResolution\bin\Release\FindImageResolution.exe', 'Python\*.ini', 'Python\*.py' -DestinationPath 'FindImageResolution.zip' -Force
+      run: powershell Compress-Archive -Path 'FindImageResolution\bin\Release\FindImageResolutionNET.exe', 'Python\*.ini', 'Python\*.py' -DestinationPath 'FindImageResolutionNET.zip' -Force
          
     - name: Rename to crplugin
-      run: ren  FindImageResolution.zip FindImageResolution.crplugin
+      run: ren  FindImageResolutionNET.zip FindImageResolutionNET.crplugin
       
     - name: Update Nightly Release
       uses: andelf/nightly-release@main
@@ -47,4 +47,4 @@ jobs:
         prerelease: true
         body: |
           This is a nightly release.
-        files: FindImageResolution.crplugin
+        files: FindImageResolutionNET.crplugin

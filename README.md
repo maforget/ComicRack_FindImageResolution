@@ -4,9 +4,9 @@
     <b><u><span style='font-size:14.0pt'>👇 Download Links 👇</span></u></b>
 </p>
 <p align="center">
-    <a href="https://github.com/maforget/ComicRack_FindImageResolution/releases/latest/download/FindImageResolution.crplugin" alt="Latest Release">
+    <a href="https://github.com/maforget/ComicRack_FindImageResolution/releases/latest/download/FindImageResolutionNET.crplugin" alt="Latest Release">
       <img src="https://img.shields.io/github/v/release/maforget/ComicRack_FindImageResolution?label=latest%20release&logo=github" /></a>
-    <a href="https://github.com/maforget/ComicRack_FindImageResolution/releases/download/nightly/FindImageResolution.crplugin" alt="Pre-Release">
+    <a href="https://github.com/maforget/ComicRack_FindImageResolution/releases/download/nightly/FindImageResolutionNET.crplugin" alt="Pre-Release">
       <img src="https://img.shields.io/github/v/release/maforget/ComicRack_FindImageResolution?include_prereleases&label=pre-release&logo=github" /></a>
 </p>
   

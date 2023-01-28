@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FindImageResolution.Setting
+namespace FindImageResolutionNET.Setting
 {
     public static class Config
     {
