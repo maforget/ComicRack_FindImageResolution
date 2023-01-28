@@ -1,16 +1,7 @@
 import clr
-import sys
-import System
-clr.AddReference('System.Windows.Forms')
-from System.Windows.Forms import *
-
-clr.AddReference('System.Drawing')
-from System.Drawing import *
-
 clr.AddReference('FindImageResolutionNET')
 from FindImageResolutionNET import *
 
-from cYo.Projects.ComicRack.Engine import *
 
 #@Name	Find Image Resolution (.NET) Config
 #@Enabled	true
@@ -18,6 +9,7 @@ from cYo.Projects.ComicRack.Engine import *
 def Config(books):
     frm = frmConfig()
     frm.ShowDialog()
+
 
 #@Name	Find Image Resolution (.NET)
 #@Key	FindImageResolutionNET
