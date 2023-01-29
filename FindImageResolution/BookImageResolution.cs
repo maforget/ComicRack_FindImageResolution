@@ -9,7 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using FindImageResolutionNET.ComicRack;
 using FindImageResolutionNET.Tools;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FindImageResolutionNET
 {
@@ -40,16 +39,25 @@ namespace FindImageResolutionNET
                 if (page.ImageHeight > 0 || page.ImageHeight > 0)
                 {
                     resolutions.Add(new ImageResolutionEventArgs(page.ImageWidthAsText, page.ImageHeightAsText));
+                    SimpleLogger.Info($"Read page {page.ImageIndex + 1} from cache. {page.ImageWidthAsText} X {page.ImageHeightAsText}");
                 }
                 else
                 {
                     var image = App.GetComicPage(book, page.ImageIndex);
+                    if (image == null)
+                        SimpleLogger.Warning($"Page {page.ImageIndex + 1} is null, maybe corrupted.");
+
                     if (image != null)
-                        resolutions.Add(new ImageResolutionEventArgs(image.Width.ToString(), image.Height.ToString()));
+                    {
+                        string width = image.Width.ToString(), height = image.Height.ToString();
+                        resolutions.Add(new ImageResolutionEventArgs(width, height));
+                        SimpleLogger.Info($"Read page {page.ImageIndex + 1} from image. {width} X {height}");
+                    }
                 }
             }
 
             var most = resolutions.GroupBy(x => x.Width).OrderByDescending(g => g.Count()).SelectMany(i => i).FirstOrDefault();
+            SimpleLogger.Info($"Most occurring dimension is: {most.Width} X {most.Height}");
             OnResolutionFound(most);
         }
 

@@ -30,12 +30,13 @@ namespace FindImageResolutionNET
 
                 _frmProgress.ShowDialog();
             }
-            catch (OperationCanceledException)
-            {
-
+            catch (OperationCanceledException e) 
+            { 
+                SimpleLogger.Error($"Canceled: {e.Message}"); 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                SimpleLogger.Error($"Exception: {e.Message}");
                 throw;
             }
             finally
@@ -99,17 +100,19 @@ namespace FindImageResolutionNET
                     //Get the current book thumbnail
                     var currentImage = _ComicRackApp.GetComicThumbnail(_CurrentBook, 0);
                     _frmProgress.UpdateForm(currentImage, serie, number);
+                    SimpleLogger.Info($"Processing Book: {serie} #{number}, File: {_CurrentBook.FilePath}");
 
                     //Check Image Resolution
                     if (_CurrentBook.IsLinked)
                         Task.Run(() => bookImageResolution.FindResolution(_CurrentBook));
                 }
-                catch (OperationCanceledException)
+                catch (OperationCanceledException e)
                 {
-
+                    SimpleLogger.Error($"Canceled: {e.Message}");
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    SimpleLogger.Error($"Exception: {e.Message}");
                     throw;
                 }
             }
