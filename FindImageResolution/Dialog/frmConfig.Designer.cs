@@ -73,7 +73,7 @@
             // 
             // txtText
             // 
-            this.txtText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtText.Location = new System.Drawing.Point(12, 108);
             this.txtText.Name = "txtText";
@@ -83,6 +83,7 @@
             // 
             // lblText
             // 
+            this.lblText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblText.AutoSize = true;
             this.lblText.Location = new System.Drawing.Point(16, 92);
             this.lblText.Name = "lblText";
@@ -164,7 +165,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -194,7 +195,7 @@
             // 
             this.tsiHeight.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsiHeight.Name = "tsiHeight";
-            this.tsiHeight.Size = new System.Drawing.Size(110, 22);
+            this.tsiHeight.Size = new System.Drawing.Size(180, 22);
             this.tsiHeight.Text = "Height";
             this.tsiHeight.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiHeight.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -203,7 +204,7 @@
             // 
             this.tsiWidth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsiWidth.Name = "tsiWidth";
-            this.tsiWidth.Size = new System.Drawing.Size(110, 22);
+            this.tsiWidth.Size = new System.Drawing.Size(180, 22);
             this.tsiWidth.Text = "Width";
             this.tsiWidth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiWidth.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
