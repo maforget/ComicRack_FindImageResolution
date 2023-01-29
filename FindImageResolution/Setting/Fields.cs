@@ -28,7 +28,7 @@ namespace FindImageResolutionNET.Setting
         [IniParam(Default = "<Width>px")]
         public string Text { get; set; } = "<Width>px";
 
-        [IniParam(Default = "WARNING")]
-        public string LogLevel { get; set; } = "WARNING";
+        [IniParam(Default = "INFO")]
+        public string LogLevel { get; set; } = "INFO";
     }
 }
