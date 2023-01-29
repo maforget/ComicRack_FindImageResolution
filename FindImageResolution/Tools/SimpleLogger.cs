@@ -155,8 +155,8 @@ public static class SimpleLogger
     public enum LogLevel
     {
         TRACE,
-        INFO,
         DEBUG,
+        INFO,
         WARNING,
         ERROR,
         FATAL
