@@ -39,7 +39,6 @@
             this.rbField = new System.Windows.Forms.RadioButton();
             this.cmbFields = new System.Windows.Forms.ComboBox();
             this.cbAppend = new System.Windows.Forms.CheckBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsiHeight = new System.Windows.Forms.ToolStripMenuItem();
@@ -163,14 +162,6 @@
             this.cbAppend.UseVisualStyleBackColor = true;
             this.cbAppend.CheckedChanged += new System.EventHandler(this.cbAppend_CheckedChanged);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(403, 24);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -244,7 +235,6 @@
             this.Controls.Add(this.txtText);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmConfig";
             this.ShowIcon = false;
@@ -273,7 +263,6 @@
         private System.Windows.Forms.RadioButton rbField;
         private System.Windows.Forms.ComboBox cmbFields;
         private System.Windows.Forms.CheckBox cbAppend;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem tsiHeight;
