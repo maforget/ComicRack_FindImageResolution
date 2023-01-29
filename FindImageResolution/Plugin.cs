@@ -137,7 +137,7 @@ namespace FindImageResolutionNET
                         else
                             _CurrentBook.SetStringValue(key, value, IsCustom);
 
-                        SimpleLogger.Info($"Setting value: {value} into {(IsCustom ? "custom field " : "")}{key}." +
+                        SimpleLogger.Info($"Setting value: \"{value}\" into {(IsCustom ? "custom field " : "")}{key}." +
                             $"{(DoAppend ? $" While Appending{(config.Newline ? " (with Newline)." : ".")}" : "")}");
                     }
                 }
