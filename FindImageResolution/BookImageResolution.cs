@@ -38,7 +38,6 @@ namespace FindImageResolutionNET
                 Token.ThrowIfCancellationRequested();
 
             var pages = book.GetPageList();
-            int pageIndex = 0;
             foreach (var page in pages)
             {
                 if (page == null) continue;
@@ -48,12 +47,10 @@ namespace FindImageResolutionNET
                 }
                 else
                 {
-                    var image = App.GetComicPage(book, pageIndex);
+                    var image = App.GetComicPage(book, page.ImageIndex);
                     if (image != null)
                         resolutions.Add(new ImageResolutionEventArgs(image.Width.ToString(), image.Height.ToString()));
                 }
-
-                pageIndex++;
             }
 
             var most = resolutions.GroupBy(x => x.Width).OrderByDescending(g => g.Count()).SelectMany(i => i).FirstOrDefault();
