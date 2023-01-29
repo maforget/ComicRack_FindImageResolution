@@ -45,7 +45,7 @@ namespace FindImageResolutionNET
                 {
                     var image = App.GetComicPage(book, page.ImageIndex);
                     if (image == null)
-                        SimpleLogger.Warning($"Page {page.ImageIndex + 1} is null, maybe corrupted.");
+                        SimpleLogger.Warning($"Page {page.ImageIndex + 1} of {book.CaptionWithoutFormat} is null, maybe corrupted.");
 
                     if (image != null)
                     {
