@@ -31,7 +31,7 @@ namespace FindImageResolutionNET.ComicRack
             return list;
         }
 
-        public virtual T GetValue<T>(string property) => Object.Get<T>(property);
+        public virtual T GetValue<T>([CallerMemberName] string property = "") => Object.Get<T>(property);
 
         public virtual void SetValue(string property, object value) => Object.SetPropertyValue(property, value);
 

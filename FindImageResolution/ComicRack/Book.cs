@@ -50,20 +50,20 @@ namespace FindImageResolutionNET.ComicRack
             }
         }
 
-        public bool IsLinked => GetValue<bool>("IsLinked");
+        public bool IsLinked => GetValue<bool>();
 
-        public string Title => GetValue<string>("Title");
-        public string ShadowTitle => GetValue<string>("ShadowTitle");
+        public string Title => GetValue<string>();
+        public string ShadowTitle => GetValue<string>();
 
-        public string Series => GetValue<string>("Series");
-        public string ShadowSeries => GetValue<string>("ShadowSeries");
+        public string Series => GetValue<string>();
+        public string ShadowSeries => GetValue<string>();
 
-        public string Number => GetValue<string>("Number");
-        public string ShadowNumber => GetValue<string>("ShadowNumber");
+        public string Number => GetValue<string>();
+        public string ShadowNumber => GetValue<string>();
 
-        public int Volume => GetValue<int>("Volume");
-        public int ShadowVolume => GetValue<int>("ShadowVolume");
+        public int Volume => GetValue<int>();
+        public int ShadowVolume => GetValue<int>();
 
-        public string FilePath => GetValue<string>("FilePath");
+        public string FilePath => GetValue<string>();
     }
 }

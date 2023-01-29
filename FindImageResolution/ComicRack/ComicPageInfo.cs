@@ -13,12 +13,12 @@ namespace FindImageResolutionNET.ComicRack
         {
         }
 
-        public string Key => GetValue<string>("Key");
-        public int ImageIndex => GetValue<int>("ImageIndex");
-        public int ImageWidth => GetValue<int>("ImageWidth");
-        public int ImageHeight => GetValue<int>("ImageHeight");
-        public string ImageWidthAsText => GetValue<string>("ImageWidthAsText");
-        public string ImageHeightAsText => GetValue<string>("ImageHeightAsText");
-        public string PageTypeAsText => GetValue<string>("PageTypeAsText");
+        public string Key => GetValue<string>();
+        public int ImageIndex => GetValue<int>();
+        public int ImageWidth => GetValue<int>();
+        public int ImageHeight => GetValue<int>();
+        public string ImageWidthAsText => GetValue<string>();
+        public string ImageHeightAsText => GetValue<string>();
+        public string PageTypeAsText => GetValue<string>();
     }
 }
