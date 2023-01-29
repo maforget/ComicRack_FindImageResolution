@@ -1,6 +1,6 @@
 import clr
 clr.AddReference('FindImageResolutionNET')
-from FindImageResolutionNET import *
+from FindImageResolutionNET import frmConfig, Plugin
 
 
 #@Name	Find Image Resolution (.NET) Config
