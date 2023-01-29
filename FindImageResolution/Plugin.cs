@@ -117,19 +117,21 @@ namespace FindImageResolutionNET
             private void ResolutionFound(object sender, ImageResolutionEventArgs e)
             {
                 var token = _frmProgress.Token;
-                var config = Config.ReadUserFromFile();
-
-                if (!token.IsCancellationRequested && e.TryParse(config.Text, out string value) && !string.IsNullOrEmpty(value))
+                if (!token.IsCancellationRequested)
                 {
+                    var config = Config.ReadUserFromFile();
                     _frmProgress.IncreaseProgressBarByOne();
                     bool DoAppend = config.Append;
                     bool IsCustom = config.Custom;
                     string key = IsCustom ? config.CustomField : config.Field;
 
-                    if (DoAppend)
-                        _CurrentBook.AppendStringValue(key, value, IsCustom, config.Newline);
-                    else
-                        _CurrentBook.SetStringValue(key, value, IsCustom);
+                    if (e.TryParse(config.Text, out string value) && !string.IsNullOrEmpty(value))
+                    {
+                        if (DoAppend)
+                            _CurrentBook.AppendStringValue(key, value, IsCustom, config.Newline);
+                        else
+                            _CurrentBook.SetStringValue(key, value, IsCustom);
+                    }
                 }
 
                 //Increase Current Book Index & Process Next Book
