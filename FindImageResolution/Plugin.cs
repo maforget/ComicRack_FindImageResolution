@@ -78,6 +78,8 @@ namespace FindImageResolutionNET
                     }
 
                     _CurrentBook = _Books[_CurrentBookIndex];
+                    if (_CurrentBook == null)
+                        return;
 
                     var bookSeries = _CurrentBook.Series;
                     var bookShadowSeries = _CurrentBook.ShadowSeries;
