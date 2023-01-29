@@ -64,6 +64,10 @@ namespace FindImageResolutionNET.ComicRack
         public int Volume => GetValue<int>();
         public int ShadowVolume => GetValue<int>();
 
+        public string Caption => GetValue<string>();
+        public string CaptionWithoutTitle => GetValue<string>();
+        public string CaptionWithoutFormat => GetValue<string>();
+
         public string FilePath => GetValue<string>();
     }
 }
