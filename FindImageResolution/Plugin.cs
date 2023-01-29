@@ -28,6 +28,7 @@ namespace FindImageResolutionNET
                 _frmProgress = new frmProgress(_Books.Length);
                 _CurrentBook = new CurrentBook();
 
+                SimpleLogger.Info($"Starting plugin, processing {_Books.Length.ToString()} books");
                 _frmProgress.ShowDialog();
             }
             catch (OperationCanceledException e) 
@@ -41,6 +42,7 @@ namespace FindImageResolutionNET
             }
             finally
             {
+                SimpleLogger.Info("Plugin finished, cleaning up");
                 _frmProgress?.Dispose();
                 _Books = null;
                 _CurrentBook = null;
@@ -134,6 +136,9 @@ namespace FindImageResolutionNET
                             _CurrentBook.AppendStringValue(key, value, IsCustom, config.Newline);
                         else
                             _CurrentBook.SetStringValue(key, value, IsCustom);
+
+                        SimpleLogger.Info($"Setting value: {value} into {(IsCustom ? "custom field " : "")}{key}." +
+                            $"{(DoAppend ? $" While Appending{(config.Newline ? " (with Newline)." : ".")}" : "")}");
                     }
                 }
 
