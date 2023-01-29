@@ -18,8 +18,9 @@ namespace FindImageResolutionNET.Tools
                 PropertyInfo property = type.GetProperty(PropertyName);
                 return property.GetValue(obj);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                SimpleLogger.Error($"Exception: {e.Message}");
                 return null;
             }
         }
@@ -32,8 +33,9 @@ namespace FindImageResolutionNET.Tools
                 PropertyInfo property = type.GetProperty(PropertyName);
                 property.SetValue(obj, value);
             }
-            catch
+            catch (Exception e)
             {
+                SimpleLogger.Error($"Exception: {e.Message}");
             }
         }
 
@@ -57,8 +59,9 @@ namespace FindImageResolutionNET.Tools
             {
                 return sourceObject.GetType().GetMethod(Method).Invoke(sourceObject, param);
             }
-            catch (Exception)
-            { 
+            catch (Exception e)
+            {
+                SimpleLogger.Error($"Exception: {e.Message}");
                 return null; 
             }
         }

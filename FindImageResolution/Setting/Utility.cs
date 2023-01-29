@@ -105,8 +105,9 @@ namespace FindImageResolutionNET.Setting
 
                 return new T();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                SimpleLogger.Error($"Exception: {e.Message}");
                 return null;
             }
         }
@@ -128,9 +129,9 @@ namespace FindImageResolutionNET.Setting
                     File.WriteAllText(iniFile, newFile);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                //throw;
+                SimpleLogger.Error($"Exception: {e.Message}");
             }
         }
         #endregion
