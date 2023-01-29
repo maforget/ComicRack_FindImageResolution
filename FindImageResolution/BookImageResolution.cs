@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FindImageResolutionNET.ComicRack;
 using FindImageResolutionNET.Tools;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FindImageResolutionNET
 {
@@ -29,19 +30,26 @@ namespace FindImageResolutionNET
         public void FindResolution(Book book)
         {
             List<ImageResolutionEventArgs> resolutions = new List<ImageResolutionEventArgs>();
-
             Token.ThrowIfCancellationRequested();
 
             var pages = book.GetPageList();
-            foreach (var page in pages)
+            var fastPages = pages.Where(p => p?.ImageHeight > 0 || p?.ImageHeight > 0);
+            var slowPages = pages.Where(p => p?.ImageHeight == 0 || p?.ImageHeight == 0);
+            int percentageToCheck = Setting.Config.ReadUserFromFile().PercentageOfSlowInspection;
+            int numberOfPagesToCheck = (int)(percentageToCheck / 100.0 * slowPages.Count());
+            SimpleLogger.Info($"Number of Pages: {fastPages.Count()} Fast & {slowPages.Count()} Slow // Inspecting {numberOfPagesToCheck + fastPages.Count()} Total ({numberOfPagesToCheck} Slow - {percentageToCheck}%)");
+
+            foreach (var page in fastPages)
             {
-                if (Token.IsCancellationRequested || page == null) continue;
-                if (page.ImageHeight > 0 || page.ImageHeight > 0)
-                {
-                    resolutions.Add(new ImageResolutionEventArgs(page.ImageWidthAsText, page.ImageHeightAsText));
-                    SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from cache. {page.ImageWidthAsText} X {page.ImageHeightAsText}");
-                }
-                else
+                resolutions.Add(new ImageResolutionEventArgs(page.ImageWidthAsText, page.ImageHeightAsText));
+                SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from cache. {page.ImageWidthAsText} X {page.ImageHeightAsText}");
+            }
+
+            int pageIndex = 0;
+            foreach (var page in slowPages)
+            {
+                if (Token.IsCancellationRequested) break;
+                if (pageIndex < numberOfPagesToCheck)
                 {
                     var image = App.GetComicPage(book, page.ImageIndex);
                     if (image == null)
@@ -54,6 +62,7 @@ namespace FindImageResolutionNET
                         SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from image. {width} X {height}");
                     }
                 }
+                pageIndex++;
             }
 
             var most = resolutions.GroupBy(x => x.Width).OrderByDescending(g => g.Count()).SelectMany(i => i).FirstOrDefault();

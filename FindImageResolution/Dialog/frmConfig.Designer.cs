@@ -46,17 +46,20 @@
             this.cbNewline = new System.Windows.Forms.CheckBox();
             this.cmbLogLevel = new System.Windows.Forms.ComboBox();
             this.lblLog = new System.Windows.Forms.Label();
+            this.lblPercentageToCheck = new System.Windows.Forms.Label();
+            this.numPercentageOfSlowInspection = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPercentageOfSlowInspection)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(318, 154);
+            this.btnOk.Location = new System.Drawing.Point(312, 152);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 0;
+            this.btnOk.TabIndex = 10;
             this.btnOk.Text = "Save";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -65,10 +68,10 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(237, 154);
+            this.btnCancel.Location = new System.Drawing.Point(231, 152);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -77,17 +80,17 @@
             // 
             this.txtText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtText.Location = new System.Drawing.Point(42, 126);
+            this.txtText.Location = new System.Drawing.Point(52, 95);
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(293, 20);
-            this.txtText.TabIndex = 2;
+            this.txtText.Size = new System.Drawing.Size(271, 20);
+            this.txtText.TabIndex = 4;
             this.txtText.Text = "<Width>px";
             // 
             // lblText
             // 
             this.lblText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblText.AutoSize = true;
-            this.lblText.Location = new System.Drawing.Point(9, 129);
+            this.lblText.Location = new System.Drawing.Point(9, 98);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(37, 13);
             this.lblText.TabIndex = 3;
@@ -103,8 +106,8 @@
             this.groupBox1.Controls.Add(this.cmbFields);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(381, 77);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.Size = new System.Drawing.Size(375, 77);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert into Field";
             // 
@@ -115,7 +118,7 @@
             this.txtCustom.Enabled = false;
             this.txtCustom.Location = new System.Drawing.Point(80, 46);
             this.txtCustom.Name = "txtCustom";
-            this.txtCustom.Size = new System.Drawing.Size(293, 20);
+            this.txtCustom.Size = new System.Drawing.Size(287, 20);
             this.txtCustom.TabIndex = 3;
             // 
             // rbCustom
@@ -125,6 +128,7 @@
             this.rbCustom.Name = "rbCustom";
             this.rbCustom.Size = new System.Drawing.Size(60, 17);
             this.rbCustom.TabIndex = 2;
+            this.rbCustom.TabStop = true;
             this.rbCustom.Text = "Custom";
             this.rbCustom.UseVisualStyleBackColor = true;
             this.rbCustom.CheckedChanged += new System.EventHandler(this.rbCheckedChanged);
@@ -136,7 +140,7 @@
             this.rbField.Location = new System.Drawing.Point(7, 22);
             this.rbField.Name = "rbField";
             this.rbField.Size = new System.Drawing.Size(52, 17);
-            this.rbField.TabIndex = 1;
+            this.rbField.TabIndex = 0;
             this.rbField.TabStop = true;
             this.rbField.Text = "Fields";
             this.rbField.UseVisualStyleBackColor = true;
@@ -150,8 +154,8 @@
             this.cmbFields.FormattingEnabled = true;
             this.cmbFields.Location = new System.Drawing.Point(80, 21);
             this.cmbFields.Name = "cmbFields";
-            this.cmbFields.Size = new System.Drawing.Size(293, 21);
-            this.cmbFields.TabIndex = 0;
+            this.cmbFields.Size = new System.Drawing.Size(287, 21);
+            this.cmbFields.TabIndex = 1;
             // 
             // cbAppend
             // 
@@ -160,7 +164,7 @@
             this.cbAppend.Location = new System.Drawing.Point(12, 158);
             this.cbAppend.Name = "cbAppend";
             this.cbAppend.Size = new System.Drawing.Size(63, 17);
-            this.cbAppend.TabIndex = 5;
+            this.cbAppend.TabIndex = 7;
             this.cbAppend.Text = "Append";
             this.cbAppend.UseVisualStyleBackColor = true;
             this.cbAppend.CheckedChanged += new System.EventHandler(this.cbAppend_CheckedChanged);
@@ -172,7 +176,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(332, 126);
+            this.toolStrip1.Location = new System.Drawing.Point(322, 92);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(64, 25);
@@ -191,7 +195,7 @@
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(61, 22);
             this.toolStripDropDownButton1.Text = "Variable";
-            this.toolStripDropDownButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripDropDownButton1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // tsiHeight
             // 
@@ -225,25 +229,56 @@
             // 
             // cmbLogLevel
             // 
-            this.cmbLogLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbLogLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmbLogLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLogLevel.FormattingEnabled = true;
-            this.cmbLogLevel.Location = new System.Drawing.Point(272, 98);
+            this.cmbLogLevel.Location = new System.Drawing.Point(75, 125);
             this.cmbLogLevel.Name = "cmbLogLevel";
-            this.cmbLogLevel.Size = new System.Drawing.Size(121, 21);
-            this.cmbLogLevel.TabIndex = 9;
+            this.cmbLogLevel.Size = new System.Drawing.Size(110, 21);
+            this.cmbLogLevel.TabIndex = 5;
             // 
             // lblLog
             // 
-            this.lblLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLog.AutoSize = true;
             this.lblLog.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblLog.Location = new System.Drawing.Point(203, 101);
+            this.lblLog.Location = new System.Drawing.Point(9, 128);
             this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(63, 13);
+            this.lblLog.Size = new System.Drawing.Size(60, 13);
             this.lblLog.TabIndex = 10;
-            this.lblLog.Text = "Log Level : ";
+            this.lblLog.Text = "Log Level :";
             this.lblLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblPercentageToCheck
+            // 
+            this.lblPercentageToCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPercentageToCheck.AutoSize = true;
+            this.lblPercentageToCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPercentageToCheck.Location = new System.Drawing.Point(195, 128);
+            this.lblPercentageToCheck.Name = "lblPercentageToCheck";
+            this.lblPercentageToCheck.Size = new System.Drawing.Size(111, 13);
+            this.lblPercentageToCheck.TabIndex = 12;
+            this.lblPercentageToCheck.Text = "% of Slow Inspection :";
+            this.lblPercentageToCheck.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numPercentageOfSlowInspection
+            // 
+            this.numPercentageOfSlowInspection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numPercentageOfSlowInspection.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.numPercentageOfSlowInspection.Location = new System.Drawing.Point(312, 126);
+            this.numPercentageOfSlowInspection.Name = "numPercentageOfSlowInspection";
+            this.numPercentageOfSlowInspection.Size = new System.Drawing.Size(75, 20);
+            this.numPercentageOfSlowInspection.TabIndex = 6;
+            this.numPercentageOfSlowInspection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numPercentageOfSlowInspection.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // frmConfig
             // 
@@ -251,7 +286,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(405, 189);
+            this.ClientSize = new System.Drawing.Size(399, 183);
+            this.Controls.Add(this.numPercentageOfSlowInspection);
+            this.Controls.Add(this.lblPercentageToCheck);
             this.Controls.Add(this.lblLog);
             this.Controls.Add(this.cmbLogLevel);
             this.Controls.Add(this.cbNewline);
@@ -263,6 +300,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConfig";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -273,6 +312,7 @@
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPercentageOfSlowInspection)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +337,7 @@
         private System.Windows.Forms.CheckBox cbNewline;
         private System.Windows.Forms.ComboBox cmbLogLevel;
         private System.Windows.Forms.Label lblLog;
+        private System.Windows.Forms.Label lblPercentageToCheck;
+        private System.Windows.Forms.NumericUpDown numPercentageOfSlowInspection;
     }
 }

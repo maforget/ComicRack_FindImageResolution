@@ -29,6 +29,7 @@ namespace FindImageResolutionNET
             if (Enum.TryParse(fields.LogLevel, true, out SimpleLogger.LogLevel logLevel))
                 cmbLogLevel.SelectedItem = logLevel;
 
+            numPercentageOfSlowInspection.Value = fields.PercentageOfSlowInspection;
             cbAppend.Checked = fields.Append;
             cbNewline.Checked = fields.Newline;
             rbCustom.Checked = fields.Custom;
@@ -77,6 +78,7 @@ namespace FindImageResolutionNET
                 Text = txtText.Text,
                 Field = cmbFields.SelectedItem.ToString(),
                 LogLevel = cmbLogLevel.SelectedItem.ToString(),
+                PercentageOfSlowInspection = (int)numPercentageOfSlowInspection.Value,
             };
             Config.WriteUserToFile(fields);
             this.Close();

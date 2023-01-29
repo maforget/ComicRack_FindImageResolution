@@ -30,5 +30,8 @@ namespace FindImageResolutionNET.Setting
 
         [IniParam(Default = "INFO")]
         public string LogLevel { get; set; } = "INFO";
+
+        [IniParam(Default = 100)]
+        public int PercentageOfSlowInspection { get; set; } = 100;
     }
 }
