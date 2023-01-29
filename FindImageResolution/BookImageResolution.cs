@@ -39,7 +39,7 @@ namespace FindImageResolutionNET
                 if (page.ImageHeight > 0 || page.ImageHeight > 0)
                 {
                     resolutions.Add(new ImageResolutionEventArgs(page.ImageWidthAsText, page.ImageHeightAsText));
-                    SimpleLogger.Info($"Read page {page.ImageIndex + 1} from cache. {page.ImageWidthAsText} X {page.ImageHeightAsText}");
+                    SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from cache. {page.ImageWidthAsText} X {page.ImageHeightAsText}");
                 }
                 else
                 {
@@ -51,7 +51,7 @@ namespace FindImageResolutionNET
                     {
                         string width = image.Width.ToString(), height = image.Height.ToString();
                         resolutions.Add(new ImageResolutionEventArgs(width, height));
-                        SimpleLogger.Info($"Read page {page.ImageIndex + 1} from image. {width} X {height}");
+                        SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from image. {width} X {height}");
                     }
                 }
             }
