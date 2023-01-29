@@ -25,22 +25,18 @@ namespace FindImageResolutionNET
         {
             App = app;
             Token = token;
-
-            if (Token.IsCancellationRequested)
-                Token.ThrowIfCancellationRequested();
         }
 
         public void FindResolution(Book book)
         {
             List<ImageResolutionEventArgs> resolutions = new List<ImageResolutionEventArgs>();
 
-            if (Token.IsCancellationRequested)
-                Token.ThrowIfCancellationRequested();
+            Token.ThrowIfCancellationRequested();
 
             var pages = book.GetPageList();
             foreach (var page in pages)
             {
-                if (page == null) continue;
+                if (Token.IsCancellationRequested || page == null) continue;
                 if (page.ImageHeight > 0 || page.ImageHeight > 0)
                 {
                     resolutions.Add(new ImageResolutionEventArgs(page.ImageWidthAsText, page.ImageHeightAsText));

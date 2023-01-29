@@ -77,6 +77,8 @@ namespace FindImageResolutionNET
                         return;
                     }
 
+                    _frmProgress.Token.ThrowIfCancellationRequested();
+
                     _CurrentBook = _Books[_CurrentBookIndex];
                     if (_CurrentBook == null)
                         return;
@@ -114,16 +116,16 @@ namespace FindImageResolutionNET
 
             private void ResolutionFound(object sender, ImageResolutionEventArgs e)
             {
-                _frmProgress.IncreaseProgressBarByOne();
                 var token = _frmProgress.Token;
                 var config = Config.ReadUserFromFile();
 
-                bool DoAppend = config.Append;
-                bool IsCustom = config.Custom;
-                string key = IsCustom ? config.CustomField : config.Field;
-
                 if (!token.IsCancellationRequested && e.TryParse(config.Text, out string value) && !string.IsNullOrEmpty(value))
                 {
+                    _frmProgress.IncreaseProgressBarByOne();
+                    bool DoAppend = config.Append;
+                    bool IsCustom = config.Custom;
+                    string key = IsCustom ? config.CustomField : config.Field;
+
                     if (DoAppend)
                         _CurrentBook.AppendStringValue(key, value, IsCustom, config.Newline);
                     else

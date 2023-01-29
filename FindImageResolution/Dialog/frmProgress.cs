@@ -9,7 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FindImageResolutionNET.Tools;
-//using AmazonScrapper.Web;
 
 namespace FindImageResolutionNET
 {
@@ -34,7 +33,6 @@ namespace FindImageResolutionNET
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            OnCancelPressed(EventArgs.Empty);
             this.Close();
         }
 
