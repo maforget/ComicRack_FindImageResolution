@@ -44,6 +44,8 @@
             this.tsiHeight = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiWidth = new System.Windows.Forms.ToolStripMenuItem();
             this.cbNewline = new System.Windows.Forms.CheckBox();
+            this.cmbLogLevel = new System.Windows.Forms.ComboBox();
+            this.lblLog = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +53,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(316, 136);
+            this.btnOk.Location = new System.Drawing.Point(318, 154);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 0;
@@ -63,7 +65,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(235, 136);
+            this.btnCancel.Location = new System.Drawing.Point(237, 154);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -75,9 +77,9 @@
             // 
             this.txtText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtText.Location = new System.Drawing.Point(12, 108);
+            this.txtText.Location = new System.Drawing.Point(42, 126);
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(312, 20);
+            this.txtText.Size = new System.Drawing.Size(293, 20);
             this.txtText.TabIndex = 2;
             this.txtText.Text = "<Width>px";
             // 
@@ -85,11 +87,11 @@
             // 
             this.lblText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblText.AutoSize = true;
-            this.lblText.Location = new System.Drawing.Point(16, 92);
+            this.lblText.Location = new System.Drawing.Point(9, 129);
             this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(28, 13);
+            this.lblText.Size = new System.Drawing.Size(37, 13);
             this.lblText.TabIndex = 3;
-            this.lblText.Text = "Text";
+            this.lblText.Text = "Text : ";
             // 
             // groupBox1
             // 
@@ -101,7 +103,7 @@
             this.groupBox1.Controls.Add(this.cmbFields);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(379, 77);
+            this.groupBox1.Size = new System.Drawing.Size(381, 77);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert into Field";
@@ -113,7 +115,7 @@
             this.txtCustom.Enabled = false;
             this.txtCustom.Location = new System.Drawing.Point(80, 46);
             this.txtCustom.Name = "txtCustom";
-            this.txtCustom.Size = new System.Drawing.Size(291, 20);
+            this.txtCustom.Size = new System.Drawing.Size(293, 20);
             this.txtCustom.TabIndex = 3;
             // 
             // rbCustom
@@ -148,14 +150,14 @@
             this.cmbFields.FormattingEnabled = true;
             this.cmbFields.Location = new System.Drawing.Point(80, 21);
             this.cmbFields.Name = "cmbFields";
-            this.cmbFields.Size = new System.Drawing.Size(291, 21);
+            this.cmbFields.Size = new System.Drawing.Size(293, 21);
             this.cmbFields.TabIndex = 0;
             // 
             // cbAppend
             // 
             this.cbAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbAppend.AutoSize = true;
-            this.cbAppend.Location = new System.Drawing.Point(12, 140);
+            this.cbAppend.Location = new System.Drawing.Point(12, 158);
             this.cbAppend.Name = "cbAppend";
             this.cbAppend.Size = new System.Drawing.Size(63, 17);
             this.cbAppend.TabIndex = 5;
@@ -170,7 +172,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(327, 108);
+            this.toolStrip1.Location = new System.Drawing.Point(332, 126);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(64, 25);
@@ -195,7 +197,7 @@
             // 
             this.tsiHeight.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsiHeight.Name = "tsiHeight";
-            this.tsiHeight.Size = new System.Drawing.Size(180, 22);
+            this.tsiHeight.Size = new System.Drawing.Size(110, 22);
             this.tsiHeight.Text = "Height";
             this.tsiHeight.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiHeight.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -204,7 +206,7 @@
             // 
             this.tsiWidth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsiWidth.Name = "tsiWidth";
-            this.tsiWidth.Size = new System.Drawing.Size(180, 22);
+            this.tsiWidth.Size = new System.Drawing.Size(110, 22);
             this.tsiWidth.Text = "Width";
             this.tsiWidth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsiWidth.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -214,12 +216,34 @@
             this.cbNewline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbNewline.AutoSize = true;
             this.cbNewline.Enabled = false;
-            this.cbNewline.Location = new System.Drawing.Point(81, 140);
+            this.cbNewline.Location = new System.Drawing.Point(81, 158);
             this.cbNewline.Name = "cbNewline";
             this.cbNewline.Size = new System.Drawing.Size(64, 17);
             this.cbNewline.TabIndex = 8;
             this.cbNewline.Text = "Newline";
             this.cbNewline.UseVisualStyleBackColor = true;
+            // 
+            // cmbLogLevel
+            // 
+            this.cmbLogLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbLogLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLogLevel.FormattingEnabled = true;
+            this.cmbLogLevel.Location = new System.Drawing.Point(272, 98);
+            this.cmbLogLevel.Name = "cmbLogLevel";
+            this.cmbLogLevel.Size = new System.Drawing.Size(121, 21);
+            this.cmbLogLevel.TabIndex = 9;
+            // 
+            // lblLog
+            // 
+            this.lblLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLog.AutoSize = true;
+            this.lblLog.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLog.Location = new System.Drawing.Point(203, 101);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(63, 13);
+            this.lblLog.TabIndex = 10;
+            this.lblLog.Text = "Log Level : ";
+            this.lblLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmConfig
             // 
@@ -227,7 +251,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(403, 171);
+            this.ClientSize = new System.Drawing.Size(405, 189);
+            this.Controls.Add(this.lblLog);
+            this.Controls.Add(this.cmbLogLevel);
             this.Controls.Add(this.cbNewline);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.cbAppend);
@@ -269,5 +295,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsiHeight;
         private System.Windows.Forms.ToolStripMenuItem tsiWidth;
         private System.Windows.Forms.CheckBox cbNewline;
+        private System.Windows.Forms.ComboBox cmbLogLevel;
+        private System.Windows.Forms.Label lblLog;
     }
 }

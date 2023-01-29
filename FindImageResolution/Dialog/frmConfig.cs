@@ -17,6 +17,7 @@ namespace FindImageResolutionNET
         {
             InitializeComponent();
             cmbFields.DataSource = Enum.GetValues(typeof(FieldsEnum));
+            cmbLogLevel.DataSource = Enum.GetValues(typeof(SimpleLogger.LogLevel));
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
@@ -24,6 +25,9 @@ namespace FindImageResolutionNET
             var fields = Config.ReadUserFromFile();
             if (Enum.TryParse(fields.Field, true, out FieldsEnum field))
                 cmbFields.SelectedItem = field;
+
+            if (Enum.TryParse(fields.LogLevel, true, out SimpleLogger.LogLevel logLevel))
+                cmbLogLevel.SelectedItem = logLevel;
 
             cbAppend.Checked = fields.Append;
             cbNewline.Checked = fields.Newline;
@@ -72,6 +76,7 @@ namespace FindImageResolutionNET
                 CustomField = txtCustom.Text,
                 Text = txtText.Text,
                 Field = cmbFields.SelectedItem.ToString(),
+                LogLevel = cmbLogLevel.SelectedItem.ToString(),
             };
             Config.WriteUserToFile(fields);
             this.Close();

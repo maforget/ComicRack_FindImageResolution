@@ -22,6 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using FindImageResolutionNET;
+using FindImageResolutionNET.Setting;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -111,39 +114,45 @@ public static class SimpleLogger
 
     private static void WriteFormattedLog(LogLevel level, string text, string callerMemberName)
     {
+        var config = Config.ReadUserFromFile();
+        int maxLevel = -1;
+        if (Enum.TryParse(config.LogLevel, true, out LogLevel logLevel))
+            maxLevel = (int) logLevel;
+
         string datetimeFormat = "yyyy-MM-dd HH:mm:ss.fff";
         string caller = $"[{callerMemberName}]".PadRight(20);
         string pretext;
         switch (level)
         {
             case LogLevel.TRACE:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [TRACE]   " + caller;
+                pretext = DateTime.Now.ToString(datetimeFormat) + " [TRACE]   " + caller;
                 break;
             case LogLevel.INFO:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [INFO]    " + caller;
+                pretext = DateTime.Now.ToString(datetimeFormat) + " [INFO]    " + caller;
                 break;
             case LogLevel.DEBUG:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [DEBUG]   " + caller;
+                pretext = DateTime.Now.ToString(datetimeFormat) + " [DEBUG]   " + caller;
                 break;
             case LogLevel.WARNING:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [WARNING] " + caller;
+                pretext = DateTime.Now.ToString(datetimeFormat) + " [WARNING] " + caller;
                 break;
             case LogLevel.ERROR:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [ERROR]   " + caller;
+                pretext = DateTime.Now.ToString(datetimeFormat) + " [ERROR]   " + caller;
                 break;
             case LogLevel.FATAL:
-                pretext = System.DateTime.Now.ToString(datetimeFormat) + " [FATAL]   " + caller;
+                pretext = DateTime.Now.ToString(datetimeFormat) + " [FATAL]   " + caller;
                 break;
             default:
                 pretext = "";
                 break;
         }
 
-        WriteLine(pretext + text, true);
+        if ((int)level >= maxLevel)
+            WriteLine(pretext + text, true);
     }
 
     [System.Flags]
-    private enum LogLevel
+    public enum LogLevel
     {
         TRACE,
         INFO,
