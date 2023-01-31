@@ -20,6 +20,5 @@ namespace FindImageResolutionNET.ComicRack
         public string ImageWidthAsText => GetValue<string>();
         public string ImageHeightAsText => GetValue<string>();
         public string PageTypeAsText => GetValue<string>();
-        public int PageCount => GetValue<int>();
     }
 }

@@ -69,5 +69,6 @@ namespace FindImageResolutionNET.ComicRack
         public string CaptionWithoutFormat => GetValue<string>();
 
         public string FilePath => GetValue<string>();
+        public int PageCount => GetValue<int>();
     }
 }
