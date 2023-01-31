@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfig));
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             this.lblPercentageToCheck = new System.Windows.Forms.Label();
             this.numPercentageOfSlowInspection = new System.Windows.Forms.NumericUpDown();
             this.cbForceRecheck = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPercentageOfSlowInspection)).BeginInit();
@@ -261,6 +263,7 @@
             this.lblPercentageToCheck.TabIndex = 12;
             this.lblPercentageToCheck.Text = "% of Slow Inspection :";
             this.lblPercentageToCheck.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.lblPercentageToCheck, resources.GetString("lblPercentageToCheck.ToolTip"));
             // 
             // numPercentageOfSlowInspection
             // 
@@ -275,6 +278,7 @@
             this.numPercentageOfSlowInspection.Size = new System.Drawing.Size(75, 20);
             this.numPercentageOfSlowInspection.TabIndex = 6;
             this.numPercentageOfSlowInspection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.numPercentageOfSlowInspection, resources.GetString("numPercentageOfSlowInspection.ToolTip"));
             this.numPercentageOfSlowInspection.Value = new decimal(new int[] {
             100,
             0,
@@ -290,7 +294,14 @@
             this.cbForceRecheck.Size = new System.Drawing.Size(100, 17);
             this.cbForceRecheck.TabIndex = 13;
             this.cbForceRecheck.Text = "Force Recheck";
+            this.toolTip1.SetToolTip(this.cbForceRecheck, resources.GetString("cbForceRecheck.ToolTip"));
             this.cbForceRecheck.UseVisualStyleBackColor = true;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 15000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // frmConfig
             // 
@@ -353,5 +364,6 @@
         private System.Windows.Forms.Label lblPercentageToCheck;
         private System.Windows.Forms.NumericUpDown numPercentageOfSlowInspection;
         private System.Windows.Forms.CheckBox cbForceRecheck;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
