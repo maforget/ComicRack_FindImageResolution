@@ -39,7 +39,8 @@ namespace FindImageResolutionNET
             var slowPages = forceRecheck ? pages : pages.Where(p => p?.ImageHeight == 0 || p?.ImageHeight == 0);
             int percentageToCheck = setting.PercentageOfSlowInspection;
             int numberOfPagesToCheck = (int)(percentageToCheck / 100.0 * slowPages.Count());
-            SimpleLogger.Info($"Number of Pages: {fastPages.Count()} Fast & {slowPages.Count()} Slow // Inspecting {numberOfPagesToCheck + fastPages.Count()} Total ({numberOfPagesToCheck} Slow - {percentageToCheck}%)");
+            int minNumberOfPagesToCheck = forceRecheck && slowPages.Count() >= 2 && numberOfPagesToCheck <= 2 ? 2 : numberOfPagesToCheck;
+            SimpleLogger.Info($"Number of Pages: {fastPages.Count()} Fast & {slowPages.Count()} Slow // Inspecting {minNumberOfPagesToCheck + fastPages.Count()} Total ({minNumberOfPagesToCheck} Slow - {percentageToCheck}%)");
 
             foreach (var page in fastPages)
             {
@@ -51,7 +52,7 @@ namespace FindImageResolutionNET
             foreach (var page in slowPages)
             {
                 if (Token.IsCancellationRequested) break;
-                if (pageIndex < numberOfPagesToCheck)
+                if (pageIndex < minNumberOfPagesToCheck)
                 {
                     var image = App.GetComicPage(book, page.ImageIndex);
                     if (image == null)

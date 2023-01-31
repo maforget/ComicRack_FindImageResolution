@@ -150,9 +150,6 @@ which will usually just use the first 2 pages.
 Lower value will increase speed, but decrease exactitude.
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>237, 17</value>
-  </metadata>
   <data name="numPercentageOfSlowInspection.ToolTip" xml:space="preserve">
     <value>Some pages are fast while others are slow to check. 
 Usually the ones that are fast are the one cached.
@@ -164,9 +161,6 @@ which will usually just use the first 2 pages.
 
 Lower value will increase speed, but decrease exactitude.</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>237, 17</value>
-  </metadata>
   <data name="cbForceRecheck.ToolTip" xml:space="preserve">
     <value>Some pages are fast while others are slow to check. 
 Usually the ones that are fast are the one cached.
@@ -176,6 +170,6 @@ This will do a slow check for all images.
 Usefull if the cache dimension is wrong. 
 
 This still takes into account the % of Slow Inspection.
-(So don't set it to too low or it won't check anything)</value>
+(a minimum of 2 pages will be checked regardless)</value>
   </data>
 </root>
