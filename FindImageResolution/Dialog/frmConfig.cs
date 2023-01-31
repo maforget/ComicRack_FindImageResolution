@@ -32,6 +32,7 @@ namespace FindImageResolutionNET
             numPercentageOfSlowInspection.Value = fields.PercentageOfSlowInspection;
             cbAppend.Checked = fields.Append;
             cbNewline.Checked = fields.Newline;
+            cbForceRecheck.Checked = fields.ForceRecheck;
             rbCustom.Checked = fields.Custom;
             rbField.Checked = !fields.Custom;
             txtCustom.Text = fields.CustomField;
@@ -73,6 +74,7 @@ namespace FindImageResolutionNET
             {
                 Append = cbAppend.Checked,
                 Newline = cbNewline.Checked,
+                ForceRecheck = cbForceRecheck.Checked,
                 Custom = rbCustom.Checked,
                 CustomField = txtCustom.Text,
                 Text = txtText.Text,

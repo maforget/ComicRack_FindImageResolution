@@ -48,6 +48,7 @@
             this.lblLog = new System.Windows.Forms.Label();
             this.lblPercentageToCheck = new System.Windows.Forms.Label();
             this.numPercentageOfSlowInspection = new System.Windows.Forms.NumericUpDown();
+            this.cbForceRecheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPercentageOfSlowInspection)).BeginInit();
@@ -56,7 +57,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(312, 152);
+            this.btnOk.Location = new System.Drawing.Point(335, 154);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 10;
@@ -68,7 +69,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(231, 152);
+            this.btnCancel.Location = new System.Drawing.Point(254, 154);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
@@ -82,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtText.Location = new System.Drawing.Point(52, 95);
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(271, 20);
+            this.txtText.Size = new System.Drawing.Size(294, 20);
             this.txtText.TabIndex = 4;
             this.txtText.Text = "<Width>px";
             // 
@@ -106,7 +107,7 @@
             this.groupBox1.Controls.Add(this.cmbFields);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(375, 77);
+            this.groupBox1.Size = new System.Drawing.Size(398, 77);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert into Field";
@@ -118,7 +119,7 @@
             this.txtCustom.Enabled = false;
             this.txtCustom.Location = new System.Drawing.Point(80, 46);
             this.txtCustom.Name = "txtCustom";
-            this.txtCustom.Size = new System.Drawing.Size(287, 20);
+            this.txtCustom.Size = new System.Drawing.Size(310, 20);
             this.txtCustom.TabIndex = 3;
             // 
             // rbCustom
@@ -154,7 +155,7 @@
             this.cmbFields.FormattingEnabled = true;
             this.cmbFields.Location = new System.Drawing.Point(80, 21);
             this.cmbFields.Name = "cmbFields";
-            this.cmbFields.Size = new System.Drawing.Size(287, 21);
+            this.cmbFields.Size = new System.Drawing.Size(310, 21);
             this.cmbFields.TabIndex = 1;
             // 
             // cbAppend
@@ -176,7 +177,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(322, 92);
+            this.toolStrip1.Location = new System.Drawing.Point(345, 92);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(64, 25);
@@ -254,7 +255,7 @@
             this.lblPercentageToCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPercentageToCheck.AutoSize = true;
             this.lblPercentageToCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblPercentageToCheck.Location = new System.Drawing.Point(195, 128);
+            this.lblPercentageToCheck.Location = new System.Drawing.Point(218, 128);
             this.lblPercentageToCheck.Name = "lblPercentageToCheck";
             this.lblPercentageToCheck.Size = new System.Drawing.Size(111, 13);
             this.lblPercentageToCheck.TabIndex = 12;
@@ -269,7 +270,7 @@
             0,
             0,
             0});
-            this.numPercentageOfSlowInspection.Location = new System.Drawing.Point(312, 126);
+            this.numPercentageOfSlowInspection.Location = new System.Drawing.Point(335, 126);
             this.numPercentageOfSlowInspection.Name = "numPercentageOfSlowInspection";
             this.numPercentageOfSlowInspection.Size = new System.Drawing.Size(75, 20);
             this.numPercentageOfSlowInspection.TabIndex = 6;
@@ -280,13 +281,25 @@
             0,
             0});
             // 
+            // cbForceRecheck
+            // 
+            this.cbForceRecheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbForceRecheck.AutoSize = true;
+            this.cbForceRecheck.Location = new System.Drawing.Point(151, 158);
+            this.cbForceRecheck.Name = "cbForceRecheck";
+            this.cbForceRecheck.Size = new System.Drawing.Size(100, 17);
+            this.cbForceRecheck.TabIndex = 13;
+            this.cbForceRecheck.Text = "Force Recheck";
+            this.cbForceRecheck.UseVisualStyleBackColor = true;
+            // 
             // frmConfig
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(399, 183);
+            this.ClientSize = new System.Drawing.Size(422, 183);
+            this.Controls.Add(this.cbForceRecheck);
             this.Controls.Add(this.numPercentageOfSlowInspection);
             this.Controls.Add(this.lblPercentageToCheck);
             this.Controls.Add(this.lblLog);
@@ -339,5 +352,6 @@
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Label lblPercentageToCheck;
         private System.Windows.Forms.NumericUpDown numPercentageOfSlowInspection;
+        private System.Windows.Forms.CheckBox cbForceRecheck;
     }
 }

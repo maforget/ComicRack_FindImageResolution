@@ -33,9 +33,11 @@ namespace FindImageResolutionNET
             Token.ThrowIfCancellationRequested();
 
             var pages = book.GetPageList();
-            var fastPages = pages.Where(p => p?.ImageHeight > 0 || p?.ImageHeight > 0);
-            var slowPages = pages.Where(p => p?.ImageHeight == 0 || p?.ImageHeight == 0);
-            int percentageToCheck = Setting.Config.ReadUserFromFile().PercentageOfSlowInspection;
+            var setting = Setting.Config.ReadUserFromFile();
+            bool forceRecheck = setting.ForceRecheck;
+            var fastPages = forceRecheck ? Enumerable.Empty<ComicPageInfo>() : pages.Where(p => p?.ImageHeight > 0 || p?.ImageHeight > 0);
+            var slowPages = forceRecheck ? pages : pages.Where(p => p?.ImageHeight == 0 || p?.ImageHeight == 0);
+            int percentageToCheck = setting.PercentageOfSlowInspection;
             int numberOfPagesToCheck = (int)(percentageToCheck / 100.0 * slowPages.Count());
             SimpleLogger.Info($"Number of Pages: {fastPages.Count()} Fast & {slowPages.Count()} Slow // Inspecting {numberOfPagesToCheck + fastPages.Count()} Total ({numberOfPagesToCheck} Slow - {percentageToCheck}%)");
 

@@ -19,6 +19,9 @@ namespace FindImageResolutionNET.Setting
         [IniParam(Default = false)]
         public bool Custom { get; set; } = false;
 
+        [IniParam(Default = false)]
+        public bool ForceRecheck { get; set; } = false;
+
         [IniParam(Default = "")]
         public string CustomField { get; set; } = "";
 
