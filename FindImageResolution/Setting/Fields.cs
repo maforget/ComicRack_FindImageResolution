@@ -28,8 +28,8 @@ namespace FindImageResolutionNET.Setting
         [IniParam(Default = "ScanInformation")]
         public string Field { get; set; } = "ScanInformation";
 
-        [IniParam(Default = "<Width>px")]
-        public string Text { get; set; } = "<Width>px";
+        [IniParam(Default = "{<Width>px}")]
+        public string Text { get; set; } = "{<Width>px}";
 
         [IniParam(Default = "INFO")]
         public string LogLevel { get; set; } = "INFO";
