@@ -40,7 +40,7 @@ namespace FindImageResolutionNET.Parser
 
             string text = (angledBrackets?.Text.ToLower() == "width" || angledBrackets?.Text.ToLower() == "height")
                             ? $"<{angledBrackets?.Text}>"
-                            : book.GetValue<string>(angledBrackets?.Text);
+                            : book.GetValue<string>(angledBrackets?.Text) ?? book.GetCustomValue(angledBrackets?.Text);
 
             if (string.IsNullOrEmpty(text)) 
                 return false;
