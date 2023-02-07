@@ -11,12 +11,6 @@ namespace FindImageResolutionNET.Setting
     public class Fields
     {
         [IniParam(Default = false)]
-        public bool Append { get; set; } = false;
-
-        [IniParam(Default = false)]
-        public bool Newline { get; set; } = false;
-
-        [IniParam(Default = false)]
         public bool Custom { get; set; } = false;
 
         [IniParam(Default = false)]

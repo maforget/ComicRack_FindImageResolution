@@ -127,7 +127,6 @@ namespace FindImageResolutionNET
                 {
                     var config = Config.ReadUserFromFile();
                     _frmProgress.IncreaseProgressBarByOne();
-                    bool DoAppend = config.Append;
                     bool IsCustom = config.Custom;
                     string key = IsCustom ? config.CustomField : config.Field;
 
