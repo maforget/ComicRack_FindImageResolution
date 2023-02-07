@@ -30,13 +30,14 @@ namespace FindImageResolutionNET
                 cmbLogLevel.SelectedItem = logLevel;
 
             numPercentageOfSlowInspection.Value = fields.PercentageOfSlowInspection;
-            cbAppend.Checked = fields.Append;
-            cbNewline.Checked = fields.Newline;
             cbForceRecheck.Checked = fields.ForceRecheck;
             rbCustom.Checked = fields.Custom;
             rbField.Checked = !fields.Custom;
             txtCustom.Text = fields.CustomField;
             txtText.Text = fields.Text;
+
+            //Set location so Insert is by default at the end on load
+            txtText.SelectionStart = txtText.TextLength;
         }
 
         private void rbCheckedChanged(object sender, EventArgs e)
@@ -52,9 +53,14 @@ namespace FindImageResolutionNET
         private void SwitchEnabled(RadioButton rb, Control txt)
         {
             if (rb.Checked)
+            {
+                SetFieldConfigValue(txt.Text);
                 txt.Enabled = true;
+            }
             else
+            {
                 txt.Enabled = false;
+            }
         }
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,8 +78,6 @@ namespace FindImageResolutionNET
         {
             Fields fields = new Fields()
             {
-                Append = cbAppend.Checked,
-                Newline = cbNewline.Checked,
                 ForceRecheck = cbForceRecheck.Checked,
                 Custom = rbCustom.Checked,
                 CustomField = txtCustom.Text,
@@ -86,9 +90,44 @@ namespace FindImageResolutionNET
             this.Close();
         }
 
-        private void cbAppend_CheckedChanged(object sender, EventArgs e)
+        private void cmbFields_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbNewline.Enabled = cbAppend.Checked;
+            ComboBox comboBox = (ComboBox)sender;
+
+            if(rbField.Checked)
+                SetFieldConfigValue(comboBox.Text);
+        }
+
+        private void SetFieldConfigValue(string text)
+        {
+            cmbFieldConfig.Items.Clear();
+            cmbFieldConfig.Items.Add(text);
+            cmbFieldConfig.Items.Add("Width");
+            cmbFieldConfig.Items.Add("Height");
+            cmbFieldConfig.Text = text;
+        }
+
+        private void txtCustom_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if(rbCustom.Checked)
+                SetFieldConfigValue(textBox.Text);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string value = string.Empty;
+            value += "{" + txtPrefix.Text;
+            value += $"<{cmbFieldConfig.Text}>";
+            value += txtSuffix.Text + "}";
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                int cursorPosition = txtText.SelectionStart;
+                txtText.Text = txtText.Text.Insert(cursorPosition, value);
+                txtText.SelectionStart = txtText.TextLength;
+            }
         }
     }
 }

@@ -39,27 +39,29 @@
             this.rbCustom = new System.Windows.Forms.RadioButton();
             this.rbField = new System.Windows.Forms.RadioButton();
             this.cmbFields = new System.Windows.Forms.ComboBox();
-            this.cbAppend = new System.Windows.Forms.CheckBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsiHeight = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiWidth = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbNewline = new System.Windows.Forms.CheckBox();
             this.cmbLogLevel = new System.Windows.Forms.ComboBox();
             this.lblLog = new System.Windows.Forms.Label();
             this.lblPercentageToCheck = new System.Windows.Forms.Label();
             this.numPercentageOfSlowInspection = new System.Windows.Forms.NumericUpDown();
             this.cbForceRecheck = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.cmbFieldConfig = new System.Windows.Forms.ComboBox();
+            this.txtPrefix = new System.Windows.Forms.TextBox();
+            this.txtSuffix = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblSuffix = new System.Windows.Forms.Label();
+            this.lblFieldConfig = new System.Windows.Forms.Label();
+            this.lblPrefix = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPercentageOfSlowInspection)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(335, 154);
+            this.btnOk.Location = new System.Drawing.Point(335, 243);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 10;
@@ -71,7 +73,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(254, 154);
+            this.btnCancel.Location = new System.Drawing.Point(254, 243);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
@@ -81,23 +83,27 @@
             // 
             // txtText
             // 
-            this.txtText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtText.Location = new System.Drawing.Point(52, 95);
+            this.txtText.Location = new System.Drawing.Point(40, 17);
+            this.txtText.Multiline = true;
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(294, 20);
+            this.txtText.Size = new System.Drawing.Size(352, 45);
             this.txtText.TabIndex = 4;
-            this.txtText.Text = "<Width>px";
+            this.txtText.Text = "{<Width>px}";
+            this.txtText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtText, resources.GetString("txtText.ToolTip"));
             // 
             // lblText
             // 
-            this.lblText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblText.AutoSize = true;
-            this.lblText.Location = new System.Drawing.Point(9, 98);
+            this.lblText.Location = new System.Drawing.Point(6, 20);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(37, 13);
             this.lblText.TabIndex = 3;
             this.lblText.Text = "Text : ";
+            this.toolTip1.SetToolTip(this.lblText, resources.GetString("lblText.ToolTip"));
             // 
             // groupBox1
             // 
@@ -123,6 +129,7 @@
             this.txtCustom.Name = "txtCustom";
             this.txtCustom.Size = new System.Drawing.Size(310, 20);
             this.txtCustom.TabIndex = 3;
+            this.txtCustom.TextChanged += new System.EventHandler(this.txtCustom_TextChanged);
             // 
             // rbCustom
             // 
@@ -159,83 +166,14 @@
             this.cmbFields.Name = "cmbFields";
             this.cmbFields.Size = new System.Drawing.Size(310, 21);
             this.cmbFields.TabIndex = 1;
-            // 
-            // cbAppend
-            // 
-            this.cbAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbAppend.AutoSize = true;
-            this.cbAppend.Location = new System.Drawing.Point(12, 158);
-            this.cbAppend.Name = "cbAppend";
-            this.cbAppend.Size = new System.Drawing.Size(63, 17);
-            this.cbAppend.TabIndex = 7;
-            this.cbAppend.Text = "Append";
-            this.cbAppend.UseVisualStyleBackColor = true;
-            this.cbAppend.CheckedChanged += new System.EventHandler(this.cbAppend_CheckedChanged);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(345, 92);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(64, 25);
-            this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsiHeight,
-            this.tsiWidth});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(61, 22);
-            this.toolStripDropDownButton1.Text = "Variable";
-            this.toolStripDropDownButton1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // tsiHeight
-            // 
-            this.tsiHeight.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsiHeight.Name = "tsiHeight";
-            this.tsiHeight.Size = new System.Drawing.Size(110, 22);
-            this.tsiHeight.Text = "Height";
-            this.tsiHeight.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tsiHeight.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
-            // 
-            // tsiWidth
-            // 
-            this.tsiWidth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsiWidth.Name = "tsiWidth";
-            this.tsiWidth.Size = new System.Drawing.Size(110, 22);
-            this.tsiWidth.Text = "Width";
-            this.tsiWidth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tsiWidth.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
-            // 
-            // cbNewline
-            // 
-            this.cbNewline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbNewline.AutoSize = true;
-            this.cbNewline.Enabled = false;
-            this.cbNewline.Location = new System.Drawing.Point(81, 158);
-            this.cbNewline.Name = "cbNewline";
-            this.cbNewline.Size = new System.Drawing.Size(64, 17);
-            this.cbNewline.TabIndex = 8;
-            this.cbNewline.Text = "Newline";
-            this.cbNewline.UseVisualStyleBackColor = true;
+            this.cmbFields.SelectedIndexChanged += new System.EventHandler(this.cmbFields_SelectedIndexChanged);
             // 
             // cmbLogLevel
             // 
             this.cmbLogLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmbLogLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLogLevel.FormattingEnabled = true;
-            this.cmbLogLevel.Location = new System.Drawing.Point(75, 125);
+            this.cmbLogLevel.Location = new System.Drawing.Point(81, 214);
             this.cmbLogLevel.Name = "cmbLogLevel";
             this.cmbLogLevel.Size = new System.Drawing.Size(110, 21);
             this.cmbLogLevel.TabIndex = 5;
@@ -245,7 +183,7 @@
             this.lblLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLog.AutoSize = true;
             this.lblLog.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblLog.Location = new System.Drawing.Point(9, 128);
+            this.lblLog.Location = new System.Drawing.Point(15, 217);
             this.lblLog.Name = "lblLog";
             this.lblLog.Size = new System.Drawing.Size(60, 13);
             this.lblLog.TabIndex = 10;
@@ -257,7 +195,7 @@
             this.lblPercentageToCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPercentageToCheck.AutoSize = true;
             this.lblPercentageToCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblPercentageToCheck.Location = new System.Drawing.Point(218, 128);
+            this.lblPercentageToCheck.Location = new System.Drawing.Point(218, 217);
             this.lblPercentageToCheck.Name = "lblPercentageToCheck";
             this.lblPercentageToCheck.Size = new System.Drawing.Size(111, 13);
             this.lblPercentageToCheck.TabIndex = 12;
@@ -273,7 +211,7 @@
             0,
             0,
             0});
-            this.numPercentageOfSlowInspection.Location = new System.Drawing.Point(335, 126);
+            this.numPercentageOfSlowInspection.Location = new System.Drawing.Point(335, 215);
             this.numPercentageOfSlowInspection.Name = "numPercentageOfSlowInspection";
             this.numPercentageOfSlowInspection.Size = new System.Drawing.Size(75, 20);
             this.numPercentageOfSlowInspection.TabIndex = 6;
@@ -289,7 +227,7 @@
             // 
             this.cbForceRecheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbForceRecheck.AutoSize = true;
-            this.cbForceRecheck.Location = new System.Drawing.Point(151, 158);
+            this.cbForceRecheck.Location = new System.Drawing.Point(12, 249);
             this.cbForceRecheck.Name = "cbForceRecheck";
             this.cbForceRecheck.Size = new System.Drawing.Size(100, 17);
             this.cbForceRecheck.TabIndex = 13;
@@ -303,24 +241,124 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Location = new System.Drawing.Point(339, 89);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(51, 23);
+            this.btnAdd.TabIndex = 14;
+            this.btnAdd.Text = "Add";
+            this.toolTip1.SetToolTip(this.btnAdd, "Inserted the Prefix, Field & Suffix with the correct syntax at the cursor locatio" +
+        "n.");
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // cmbFieldConfig
+            // 
+            this.cmbFieldConfig.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbFieldConfig.FormattingEnabled = true;
+            this.cmbFieldConfig.Items.AddRange(new object[] {
+            "Width",
+            "Height"});
+            this.cmbFieldConfig.Location = new System.Drawing.Point(100, 90);
+            this.cmbFieldConfig.Name = "cmbFieldConfig";
+            this.cmbFieldConfig.Size = new System.Drawing.Size(134, 21);
+            this.cmbFieldConfig.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.cmbFieldConfig, "Any value can be used, even those that aren\'t in the Drop Down.\r\nIf the value doe" +
+        "sn\'t exist, then it will check in the custom fields.");
+            // 
+            // txtPrefix
+            // 
+            this.txtPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtPrefix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrefix.Location = new System.Drawing.Point(6, 90);
+            this.txtPrefix.Name = "txtPrefix";
+            this.txtPrefix.Size = new System.Drawing.Size(88, 20);
+            this.txtPrefix.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.txtPrefix, "Will be inserted before the field if it has a value.\r\n");
+            // 
+            // txtSuffix
+            // 
+            this.txtSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSuffix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSuffix.Location = new System.Drawing.Point(240, 90);
+            this.txtSuffix.Name = "txtSuffix";
+            this.txtSuffix.Size = new System.Drawing.Size(93, 20);
+            this.txtSuffix.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.txtSuffix, "Will be inserted after the field if it has a value.");
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lblText);
+            this.groupBox2.Controls.Add(this.lblSuffix);
+            this.groupBox2.Controls.Add(this.txtText);
+            this.groupBox2.Controls.Add(this.lblFieldConfig);
+            this.groupBox2.Controls.Add(this.txtPrefix);
+            this.groupBox2.Controls.Add(this.lblPrefix);
+            this.groupBox2.Controls.Add(this.cmbFieldConfig);
+            this.groupBox2.Controls.Add(this.btnAdd);
+            this.groupBox2.Controls.Add(this.txtSuffix);
+            this.groupBox2.Location = new System.Drawing.Point(12, 92);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(398, 116);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Field Config";
+            // 
+            // lblSuffix
+            // 
+            this.lblSuffix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSuffix.AutoSize = true;
+            this.lblSuffix.Location = new System.Drawing.Point(270, 74);
+            this.lblSuffix.Name = "lblSuffix";
+            this.lblSuffix.Size = new System.Drawing.Size(33, 13);
+            this.lblSuffix.TabIndex = 20;
+            this.lblSuffix.Text = "Suffix";
+            this.toolTip1.SetToolTip(this.lblSuffix, "Will be inserted after the field if it has a value.");
+            // 
+            // lblFieldConfig
+            // 
+            this.lblFieldConfig.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFieldConfig.AutoSize = true;
+            this.lblFieldConfig.Location = new System.Drawing.Point(149, 74);
+            this.lblFieldConfig.Name = "lblFieldConfig";
+            this.lblFieldConfig.Size = new System.Drawing.Size(29, 13);
+            this.lblFieldConfig.TabIndex = 19;
+            this.lblFieldConfig.Text = "Field";
+            this.toolTip1.SetToolTip(this.lblFieldConfig, "Any value can be used, even those that aren\'t in the Drop Down.\r\nIf the value doe" +
+        "sn\'t exist, then it will check in the custom fields.");
+            // 
+            // lblPrefix
+            // 
+            this.lblPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPrefix.AutoSize = true;
+            this.lblPrefix.Location = new System.Drawing.Point(30, 74);
+            this.lblPrefix.Name = "lblPrefix";
+            this.lblPrefix.Size = new System.Drawing.Size(33, 13);
+            this.lblPrefix.TabIndex = 18;
+            this.lblPrefix.Text = "Prefix";
+            this.toolTip1.SetToolTip(this.lblPrefix, "Will be inserted before the field if it has a value.");
+            // 
             // frmConfig
             // 
-            this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(422, 183);
+            this.ClientSize = new System.Drawing.Size(422, 272);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cbForceRecheck);
             this.Controls.Add(this.numPercentageOfSlowInspection);
             this.Controls.Add(this.lblPercentageToCheck);
             this.Controls.Add(this.lblLog);
             this.Controls.Add(this.cmbLogLevel);
-            this.Controls.Add(this.cbNewline);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.cbAppend);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblText);
-            this.Controls.Add(this.txtText);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -334,9 +372,9 @@
             this.Load += new System.EventHandler(this.frmConfig_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPercentageOfSlowInspection)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,17 +391,19 @@
         private System.Windows.Forms.RadioButton rbCustom;
         private System.Windows.Forms.RadioButton rbField;
         private System.Windows.Forms.ComboBox cmbFields;
-        private System.Windows.Forms.CheckBox cbAppend;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem tsiHeight;
-        private System.Windows.Forms.ToolStripMenuItem tsiWidth;
-        private System.Windows.Forms.CheckBox cbNewline;
         private System.Windows.Forms.ComboBox cmbLogLevel;
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Label lblPercentageToCheck;
         private System.Windows.Forms.NumericUpDown numPercentageOfSlowInspection;
         private System.Windows.Forms.CheckBox cbForceRecheck;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ComboBox cmbFieldConfig;
+        private System.Windows.Forms.TextBox txtPrefix;
+        private System.Windows.Forms.TextBox txtSuffix;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblSuffix;
+        private System.Windows.Forms.Label lblFieldConfig;
+        private System.Windows.Forms.Label lblPrefix;
     }
 }
