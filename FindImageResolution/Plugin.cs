@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FindImageResolutionNET.Setting;
+using FindImageResolutionNET.Parser;
 
 namespace FindImageResolutionNET
 {
@@ -130,15 +131,11 @@ namespace FindImageResolutionNET
                     bool IsCustom = config.Custom;
                     string key = IsCustom ? config.CustomField : config.Field;
 
-                    if (e.TryParse(config.Text, out string value) && !string.IsNullOrEmpty(value))
+                    if (_CurrentBook.TryGetValue(config.Text, out string parsedValue) && e.TryParse(parsedValue, out string value))
                     {
-                        if (DoAppend)
-                            _CurrentBook.AppendStringValue(key, value, IsCustom, config.Newline);
-                        else
-                            _CurrentBook.SetStringValue(key, value, IsCustom);
+                        _CurrentBook.SetStringValue(key, value, IsCustom);
 
-                        SimpleLogger.Info($"Setting value: \"{value}\" into {(IsCustom ? "custom field " : "")}{key}." +
-                            $"{(DoAppend ? $" While Appending{(config.Newline ? " (with Newline)." : ".")}" : "")}");
+                        SimpleLogger.Info($"Setting value: \"{value}\" into {(IsCustom ? "custom field " : "")}{key}.");
                     }
                 }
 
