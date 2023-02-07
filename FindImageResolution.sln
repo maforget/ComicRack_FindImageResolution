@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindImageResolution", "Find
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python", "Python\Python.pyproj", "{78C512C4-393A-46E9-B6D1-3296332D4073}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{060D1D68-2041-468C-AFF7-E47FDE52C35C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,12 @@ Global
 		{78C512C4-393A-46E9-B6D1-3296332D4073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78C512C4-393A-46E9-B6D1-3296332D4073}.DEV|Any CPU.ActiveCfg = DEV|Any CPU
 		{78C512C4-393A-46E9-B6D1-3296332D4073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060D1D68-2041-468C-AFF7-E47FDE52C35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060D1D68-2041-468C-AFF7-E47FDE52C35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060D1D68-2041-468C-AFF7-E47FDE52C35C}.DEV|Any CPU.ActiveCfg = Debug|Any CPU
+		{060D1D68-2041-468C-AFF7-E47FDE52C35C}.DEV|Any CPU.Build.0 = Debug|Any CPU
+		{060D1D68-2041-468C-AFF7-E47FDE52C35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060D1D68-2041-468C-AFF7-E47FDE52C35C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
