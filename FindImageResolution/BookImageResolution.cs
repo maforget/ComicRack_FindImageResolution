@@ -75,15 +75,16 @@ namespace FindImageResolutionNET
                 if (pageIndex < minNumberOfPagesToCheck)
                 {
                     var image = App.GetComicPage(book, page.ImageIndex);
-                    if (image == null)
-                        SimpleLogger.Warning($"Page {page.ImageIndex + 1} of {book.CaptionWithoutFormat} is null, maybe corrupted.");
-
                     if (image != null)
                     {
                         string width = image.Width.ToString(), height = image.Height.ToString();
                         string dpi = image.VerticalResolution == image.HorizontalResolution ? image.VerticalResolution.ToString() : $"{image.VerticalResolution.ToString()}V & {image.HorizontalResolution.ToString()}H";
                         resolutions.Add(new ImageResolutionEventArgs(width, height, dpi));
                         SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from image. {width} X {height} ({dpi}dpi)");
+                    }
+                    else
+                    {
+                        SimpleLogger.Warning($"Page {page.ImageIndex + 1} of {book.CaptionWithoutFormat} is null, maybe corrupted.");
                     }
                 }
                 pageIndex++;
@@ -95,7 +96,7 @@ namespace FindImageResolutionNET
     }
 
     public class ImageResolutionEventArgs : EventArgs
-    { 
+    {
         public string Width { get; }
         public string Height { get; }
         public string dpi { get; }
