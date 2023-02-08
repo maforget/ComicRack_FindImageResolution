@@ -48,9 +48,17 @@ namespace FindImageResolutionNET.Tools
 
         public static T Get<T>(this object sourceObject, string property)
         {
-            var type = sourceObject.GetType();
-            var prop = type.GetProperty(property);
-            return (T)type.GetPropertyValue(sourceObject, property);
+            try
+            {
+                var type = sourceObject.GetType();
+                var prop = type.GetProperty(property);
+                var ret = type.GetPropertyValue(sourceObject, property);
+                return (T)Convert.ChangeType(ret, typeof(T));
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
         }
 
         public static object InvokeMethod(this object sourceObject, string Method, params object[] param)
