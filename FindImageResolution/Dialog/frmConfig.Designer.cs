@@ -260,9 +260,6 @@
             this.cmbFieldConfig.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbFieldConfig.FormattingEnabled = true;
-            this.cmbFieldConfig.Items.AddRange(new object[] {
-            "Width",
-            "Height"});
             this.cmbFieldConfig.Location = new System.Drawing.Point(100, 90);
             this.cmbFieldConfig.Name = "cmbFieldConfig";
             this.cmbFieldConfig.Size = new System.Drawing.Size(134, 21);

@@ -39,7 +39,7 @@ namespace FindImageResolutionNET.Parser
             if (angledBrackets == null || string.IsNullOrEmpty(angledBrackets?.Text))
                 return false;
 
-            var isResolution = angledBrackets?.Text.ToLower() == "width" || angledBrackets?.Text.ToLower() == "height";
+            var isResolution = Enum.TryParse<ResolutionEnum>(angledBrackets?.Text, out _);
 
             string text = isResolution ? e.Get<string>(angledBrackets?.Text)
                             : book.GetValue<string>(angledBrackets?.Text) ?? book.GetCustomValue(angledBrackets?.Text);

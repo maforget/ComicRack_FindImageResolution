@@ -18,6 +18,7 @@ namespace FindImageResolutionNET
             InitializeComponent();
             cmbFields.DataSource = Enum.GetValues(typeof(FieldsEnum));
             cmbLogLevel.DataSource = Enum.GetValues(typeof(SimpleLogger.LogLevel));
+            cmbFieldConfig.Items.AddRange(Enum.GetNames(typeof(ResolutionEnum)));
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
@@ -102,8 +103,7 @@ namespace FindImageResolutionNET
         {
             cmbFieldConfig.Items.Clear();
             cmbFieldConfig.Items.Add(text);
-            cmbFieldConfig.Items.Add("Width");
-            cmbFieldConfig.Items.Add("Height");
+            cmbFieldConfig.Items.AddRange(Enum.GetNames(typeof(ResolutionEnum)));
             cmbFieldConfig.Text = text;
         }
 

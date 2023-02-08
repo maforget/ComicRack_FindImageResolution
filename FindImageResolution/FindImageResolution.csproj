@@ -72,6 +72,7 @@
     <Compile Include="BookImageResolution.cs" />
     <Compile Include="ComicRack\ComicPageInfo.cs" />
     <Compile Include="ComicRack\ObjectBase.cs" />
+    <Compile Include="ResolutionEnum.cs" />
     <Compile Include="Parser\MatchedBase.cs" />
     <Compile Include="Parser\MatchedCurlyBrackets.cs" />
     <Compile Include="Parser\MatchedAngledBrackets.cs" />
