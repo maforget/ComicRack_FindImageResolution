@@ -9,6 +9,7 @@ namespace FindImageResolutionNET
     public enum ResolutionEnum
     {
         Width,
-        Height
+        Height,
+        dpi
     }
 }

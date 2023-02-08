@@ -81,8 +81,9 @@ namespace FindImageResolutionNET
                     if (image != null)
                     {
                         string width = image.Width.ToString(), height = image.Height.ToString();
-                        resolutions.Add(new ImageResolutionEventArgs(width, height));
-                        SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from image. {width} X {height}");
+                        string dpi = image.VerticalResolution == image.HorizontalResolution ? image.VerticalResolution.ToString() : $"{image.VerticalResolution.ToString()}V & {image.HorizontalResolution.ToString()}H";
+                        resolutions.Add(new ImageResolutionEventArgs(width, height, dpi));
+                        SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from image. {width} X {height} ({dpi}dpi)");
                     }
                 }
                 pageIndex++;
@@ -97,8 +98,9 @@ namespace FindImageResolutionNET
     { 
         public string Width { get; }
         public string Height { get; }
+        public string dpi { get; }
 
-        public ImageResolutionEventArgs(string Width, string Height)
+        public ImageResolutionEventArgs(string Width, string Height, string dpi = "")
         {
             this.Width = Width;
             this.Height = Height;
