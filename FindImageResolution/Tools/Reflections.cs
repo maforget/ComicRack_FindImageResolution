@@ -51,7 +51,6 @@ namespace FindImageResolutionNET.Tools
             try
             {
                 var type = sourceObject.GetType();
-                var prop = type.GetProperty(property);
                 var ret = type.GetPropertyValue(sourceObject, property);
                 return (T)Convert.ChangeType(ret, typeof(T));
             }
