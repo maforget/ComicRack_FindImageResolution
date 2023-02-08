@@ -54,8 +54,9 @@ namespace FindImageResolutionNET.Tools
                 var ret = type.GetPropertyValue(sourceObject, property);
                 return (T)Convert.ChangeType(ret, typeof(T));
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                SimpleLogger.Error($"Exception: {e.Message}. PropertyName: {property}");
                 return default(T);
             }
         }
