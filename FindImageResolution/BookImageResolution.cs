@@ -102,30 +102,7 @@ namespace FindImageResolutionNET
         {
             this.Width = Width;
             this.Height = Height;
-        }
-
-        public bool TryParse(string inputText, out string output)
-        {
-            output = string.Empty;
-            Regex regex = new Regex(@"<(.*?)>", RegexOptions.IgnoreCase);
-            var matches = regex.Matches(inputText);
-            Func<Match, string> valueDelegate = x => this.Get<string>(x.Groups[1].Value);
-
-            if (matches.Count == 0)
-                return false;
-
-            foreach (Match match in matches)
-            {
-                if (!match.Success || match.Groups.Count < 2)
-                    return false;
-
-                string value = valueDelegate(match);
-                if (string.IsNullOrEmpty(value))
-                    return false;
-            }
-
-            output = regex.Replace(inputText, new MatchEvaluator(valueDelegate));
-            return true;
+            this.dpi = dpi;
         }
     }
 }

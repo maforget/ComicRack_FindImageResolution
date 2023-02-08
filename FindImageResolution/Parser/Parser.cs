@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using FindImageResolutionNET.ComicRack;
+using FindImageResolutionNET.Tools;
 
 namespace FindImageResolutionNET.Parser
 {
     public static class Parser
     {
-        public static bool TryGetValue(this Book book, string text, out string value)
+        public static bool TryGetValue(this Book book, string text, ImageResolutionEventArgs e, out string value)
         {
             value = string.Empty;
             if (string.IsNullOrEmpty(text))
@@ -20,7 +21,7 @@ namespace FindImageResolutionNET.Parser
             foreach (MatchedCurlyBrackets item in curlyBrackets)
             {
                 value += item.Prefix;
-                if(book.TryGetValue(item, out string valueBracket))
+                if(book.TryGetValue(item, e, out string valueBracket))
                     value += valueBracket;
                 value += item.Suffix;
             }
@@ -31,15 +32,16 @@ namespace FindImageResolutionNET.Parser
             return true;
         }
 
-        private static bool TryGetValue(this Book book, MatchedCurlyBrackets curlyBrackets, out string value)
+        private static bool TryGetValue(this Book book, MatchedCurlyBrackets curlyBrackets, ImageResolutionEventArgs e, out string value)
         {
             value = string.Empty;
             var angledBrackets = curlyBrackets?.Value ?? null;
             if (angledBrackets == null || string.IsNullOrEmpty(angledBrackets?.Text))
                 return false;
 
-            string text = (angledBrackets?.Text.ToLower() == "width" || angledBrackets?.Text.ToLower() == "height")
-                            ? $"<{angledBrackets?.Text}>"
+            var isResolution = angledBrackets?.Text.ToLower() == "width" || angledBrackets?.Text.ToLower() == "height";
+
+            string text = isResolution ? e.Get<string>(angledBrackets?.Text)
                             : book.GetValue<string>(angledBrackets?.Text) ?? book.GetCustomValue(angledBrackets?.Text);
 
             if (string.IsNullOrEmpty(text)) 

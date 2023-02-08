@@ -130,7 +130,7 @@ namespace FindImageResolutionNET
                     bool IsCustom = config.Custom;
                     string key = IsCustom ? config.CustomField : config.Field;
 
-                    if (!string.IsNullOrEmpty(key) && _CurrentBook.TryGetValue(config.Text, out string parsedValue) && e.TryParse(parsedValue, out string value))
+                    if (!string.IsNullOrEmpty(key) && _CurrentBook.TryGetValue(config.Text, e, out string value))
                     {
                         _CurrentBook.SetStringValue(key, value, IsCustom);
 
