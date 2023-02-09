@@ -41,8 +41,7 @@ namespace FindImageResolutionNET.Parser
 
             var isResolution = Enum.TryParse<ResolutionEnum>(angledBrackets?.Text, out _);
 
-            string text = isResolution ? e.Get<string>(angledBrackets?.Text)
-                            : book.GetValue<string>(angledBrackets?.Text) ?? book.GetCustomValue(angledBrackets?.Text);
+            string text = isResolution ? e.Get<string>(angledBrackets?.Text) : book.GetExistingValue(angledBrackets?.Text);
 
             if (string.IsNullOrEmpty(text)) 
                 return false;

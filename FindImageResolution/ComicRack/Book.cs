@@ -26,21 +26,23 @@ namespace FindImageResolutionNET.ComicRack
         {
             if (!string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(key))
             {
+                string existingValue = GetExistingValue(key);
                 if (IsCustom)
                 {
-                    string existingValue = GetCustomValue(key);
-
                     if (existingValue != value)
                         SetCustomValue(key, value);
                 }
                 else
                 {
-                    string existingValue = GetValue<string>(key);
-
                     if (existingValue != value)
                         base.SetValue(key, value);
                 }
             }
+        }
+
+        public string GetExistingValue(string key)
+        {
+            return GetValue<string>(key) ?? GetCustomValue(key);
         }
 
         public void AppendStringValue(string key, string value, bool IsCustom, bool NewLine = false)
