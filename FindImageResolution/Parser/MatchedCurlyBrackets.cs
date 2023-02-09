@@ -9,8 +9,8 @@ namespace FindImageResolutionNET.Parser
     public class MatchedCurlyBrackets : MatchedBase
     {
         public override IMatchedFields Value { get; }
-        public MatchedCurlyBrackets(string text, string prefix, string suffix)
-            : base(text, prefix, suffix)
+        public MatchedCurlyBrackets(string text, string prefix, string suffix, string raw)
+            : base(text, prefix, suffix, raw)
         {
             Value = MatchedAngledBrackets.Parse(text).FirstOrDefault();
         }

@@ -9,13 +9,15 @@ namespace FindImageResolutionNET.Parser
         public string Prefix { get; } = string.Empty;
         public string Text { get; } = string.Empty;
         public string Suffix { get; } = string.Empty;
+        public string Raw { get; } = string.Empty;
         public abstract IMatchedFields Value { get; }
 
-        protected MatchedBase(string text, string prefix, string suffix)
+        protected MatchedBase(string text, string prefix, string suffix, string raw)
         {
             Text = text;
             Prefix = prefix;
             Suffix = suffix;
+            Raw = raw;
         }
 
         public static IEnumerable<IMatchedFields> Parse<T>(string text, Regex regex) where T : IMatchedFields
@@ -29,7 +31,7 @@ namespace FindImageResolutionNET.Parser
                     string match = matchResult.Groups["match"]?.Value;
                     string prefix = matchResult.Groups["prefix"]?.Value;
                     string suffix = matchResult.Groups["suffix"]?.Value;
-                    var matched = (T)Activator.CreateInstance(typeof(T), new[] { match, prefix, suffix});
+                    var matched = (T)Activator.CreateInstance(typeof(T), new[] { match, prefix, suffix, matchResult.Value});
                     list.Add(matched);
                     matchResult = matchResult.NextMatch();
                 }

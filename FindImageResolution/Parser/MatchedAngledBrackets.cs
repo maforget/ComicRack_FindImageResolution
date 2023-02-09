@@ -10,8 +10,8 @@ namespace FindImageResolutionNET.Parser
     {
         public override IMatchedFields Value { get; }
 
-        public MatchedAngledBrackets(string text, string prefix, string suffix)
-            :base(text, prefix, suffix)
+        public MatchedAngledBrackets(string text, string prefix, string suffix, string raw)
+            :base(text, prefix, suffix, raw)
         {
 
         }

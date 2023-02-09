@@ -8,6 +8,7 @@ namespace FindImageResolutionNET.Parser
         string Prefix { get; }
         string Text { get; }
         string Suffix { get; }
+        string Raw { get; }
         IMatchedFields Value { get; }
     }
 }
