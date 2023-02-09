@@ -20,7 +20,7 @@ namespace FindImageResolutionNET.Tools
             }
             catch (Exception e)
             {
-                SimpleLogger.Error($"Exception: {e.Message}. PropertyName: {PropertyName}");
+                SimpleLogger.Debug($"Exception: {e.Message}. PropertyName: {PropertyName}");
                 return null;
             }
         }
