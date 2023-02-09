@@ -11,8 +11,9 @@ namespace FindImageResolutionNET.Parser
 {
     public static class Parser
     {
-        public static bool TryGetValue(this Book book, string text, ImageResolutionEventArgs e, out string value)
+        public static bool TryGetValue(this Book book, string text, string key, ImageResolutionEventArgs e, out string value)
         {
+            string doubleCheck = string.Empty;
             value = string.Empty;
             if (string.IsNullOrEmpty(text))
                 return false;
@@ -22,11 +23,17 @@ namespace FindImageResolutionNET.Parser
             {
                 value += item.Prefix;
                 if(book.TryGetValue(item, e, out string valueBracket))
+                {
+                    if (item?.Value?.Text != key)
+                        doubleCheck += valueBracket;
+
                     value += valueBracket;
+                }
                 value += item.Suffix;
             }
 
-            if(string.IsNullOrEmpty(value))
+            var existingValue = book.GetExistingValue(key);
+            if(string.IsNullOrEmpty(value) || doubleCheck == existingValue)
                 return false;
 
             return true;
