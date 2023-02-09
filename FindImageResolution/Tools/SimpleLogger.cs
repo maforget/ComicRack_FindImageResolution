@@ -85,11 +85,22 @@ public static class SimpleLogger
         WriteFormattedLog(LogLevel.WARNING, text, callerMemberName);
     }
 
-    private static void WriteLine(string text, bool append = false)
+    public static void DividingLine()
+    {
+        WriteLine(new String('-', 200), true);
+    }
+
+    private static string GetFilePath()
     {
         string FILE_EXT = ".log";
         Assembly assembly = Assembly.GetExecutingAssembly();
         string logFilename = Path.Combine(Path.GetDirectoryName(assembly.Location), assembly.GetName().Name + FILE_EXT);
+        return logFilename;
+    }
+
+    private static void WriteLine(string text, bool append = false)
+    {
+        string logFilename = GetFilePath();
         object fileLock = new object();
 
         try
@@ -149,6 +160,19 @@ public static class SimpleLogger
 
         if ((int)level >= maxLevel)
             WriteLine(pretext + ParseNewLine(text), true);
+    }
+
+    private static void DeleteLog()
+    {
+        string logFilename = GetFilePath();
+        try
+        {
+            File.Delete(logFilename);
+        }
+        catch
+        {
+
+        }
     }
 
     private static string ParseNewLine(string input)

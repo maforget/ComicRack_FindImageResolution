@@ -29,6 +29,7 @@ namespace FindImageResolutionNET
                 _frmProgress = new frmProgress(_Books.Length);
                 _CurrentBook = new CurrentBook();
 
+                SimpleLogger.DividingLine();
                 SimpleLogger.Info($"Starting plugin, processing {_Books.Length.ToString()} books");
                 _frmProgress.ShowDialog();
             }
@@ -103,7 +104,8 @@ namespace FindImageResolutionNET
                     //Get the current book thumbnail
                     var currentImage = _ComicRackApp.GetComicThumbnail(_CurrentBook, 0);
                     _frmProgress.UpdateForm(currentImage, serie, number);
-                    SimpleLogger.Info($"Processing Book: {_CurrentBook.CaptionWithoutFormat}, File: {_CurrentBook.FilePath}");
+                    SimpleLogger.Info($"Processing Book: {_CurrentBook.CaptionWithoutFormat}");
+                    SimpleLogger.Info($"Processing File: {_CurrentBook.FilePath}");
 
                     //Check Image Resolution
                     if (_CurrentBook.IsLinked)
