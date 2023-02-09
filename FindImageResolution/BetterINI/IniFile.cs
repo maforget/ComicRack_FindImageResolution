@@ -201,7 +201,7 @@ namespace BetterINI
                 return false;
 
             outKey = line.Substring(0, line.IndexOf(keyValSep)).Trim();
-            outValue = line.IndexOf(keyValSep) + 1 >= line.Length ? string.Empty : line.Substring(line.IndexOf(keyValSep) + 1).Trim();
+            outValue = line.IndexOf(keyValSep) + 1 >= line.Length ? string.Empty : line.Substring(line.IndexOf(keyValSep) + 1).Trim().Trim('"');
 
             //if (Boolean.TryParse(outValue, out bool outV))
             //	return outV;
@@ -431,7 +431,7 @@ namespace BetterINI
                 }
 
                 string k = align ? key.PadRight(longest) : key;
-                sb.AppendLine($"{k} {KeyValueSeparator} {data[key].Value}");
+                sb.AppendLine($"{k} {KeyValueSeparator} \"{data[key].Value}\"");
             }
 
             return sb.ToString();
