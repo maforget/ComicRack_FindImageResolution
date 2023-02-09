@@ -202,11 +202,25 @@ namespace BetterINI
 
             outKey = line.Substring(0, line.IndexOf(keyValSep)).Trim();
             outValue = line.IndexOf(keyValSep) + 1 >= line.Length ? string.Empty : line.Substring(line.IndexOf(keyValSep) + 1).Trim().Trim('"');
+            outValue = ParseNewLine(outValue);
 
             //if (Boolean.TryParse(outValue, out bool outV))
             //	return outV;
 
             return true;
+        }
+
+        private static string ParseNewLine(string input)
+        {
+            if (input.Contains(Environment.NewLine))
+                return input.Replace(Environment.NewLine, "\\r\\n");
+
+            string output = input;
+            var newLineChar = new string[] { "\\r\\n", "\\r", "\\n" };
+            foreach (string c in newLineChar)
+                output = output.Replace(c, Environment.NewLine); 
+
+            return output;
         }
 
         /// <summary>
@@ -431,7 +445,8 @@ namespace BetterINI
                 }
 
                 string k = align ? key.PadRight(longest) : key;
-                sb.AppendLine($"{k} {KeyValueSeparator} \"{data[key].Value}\"");
+                string value = $"{k} {KeyValueSeparator} \"{data[key].Value}\"";
+                sb.AppendLine(ParseNewLine(value));
             }
 
             return sb.ToString();
