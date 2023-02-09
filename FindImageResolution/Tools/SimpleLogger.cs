@@ -148,7 +148,15 @@ public static class SimpleLogger
         }
 
         if ((int)level >= maxLevel)
-            WriteLine(pretext + text, true);
+            WriteLine(pretext + ParseNewLine(text), true);
+    }
+
+    private static string ParseNewLine(string input)
+    {
+        if (input.Contains(Environment.NewLine))
+            return input.Replace(Environment.NewLine, "\\r\\n");
+
+        return input;
     }
 
     [System.Flags]
