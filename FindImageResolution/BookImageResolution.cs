@@ -80,6 +80,7 @@ namespace FindImageResolutionNET
                         string width = image.Width.ToString(), height = image.Height.ToString();
                         string dpi = image.VerticalResolution == image.HorizontalResolution ? image.VerticalResolution.ToString() : $"{image.VerticalResolution.ToString()}V & {image.HorizontalResolution.ToString()}H";
                         resolutions.Add(new ImageResolutionEventArgs(width, height, dpi));
+                        image.Dispose();
                         SimpleLogger.Debug($"Read page {page.ImageIndex + 1} from image. {width} X {height} ({dpi}dpi)");
                     }
                     else
