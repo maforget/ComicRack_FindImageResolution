@@ -10,6 +10,5 @@ namespace FindImageResolutionNET
     {
         Width,
         Height,
-        dpi
     }
 }
