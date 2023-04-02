@@ -14,30 +14,30 @@
 
 ##### Configuration are in File => Automation => Find Image Resolution (.NET) Config.
 
-Syntax similar to Library Organizer. You can reference any field from ComicRack or Custom.
-Added Option for Force Recheck, to force checking of each image (slower). (If you have % set to 0, it will still check 2 pages)
-Added help when you hover over certain elements of the configuration.
-Added verification to prevent the text from being duplicated if you use it twice.
+- Syntax similar to Library Organizer. You can reference any field from ComicRack even Customs one.
+- Option to Force Recheck, will load each images into memory individually (slower), even if they were cached. (If you have % set to 0, it will check a minimum of 2 pages)
+- Check Help when you hover over certain elements in the configuration dialog.
+- Verification to prevent the text from being duplicated if you use it twice.
 
 Library Organizer Syntax is anything between the `{` and `<` and `>` with `}` will be added as prefix & suffix. If the field is null or empty then no prefix & suffix will be used. You can use the GUI to easily set your commnds just like in the Library Organizer plugin. You can use any field, even custom fields.
 
 ![image](https://user-images.githubusercontent.com/11904426/229339516-f9531a33-2a6f-4ac1-917a-bcb77e7024a2.png)
 
-Normal replacement. "X" and "px" before and after Height will only be inserted if it has a value.
+Normal replacement. `X` and `px` before and after Height will only be inserted if it has a value.
 
 ![image](https://user-images.githubusercontent.com/11904426/229339517-87964dc2-4d8b-44de-8550-8b4ad51bf66f.png)
 
-You can also add any text outside the "{" "}" and it will always be inserted.
+You can also add any text outside the `{` `}` and it will always be inserted.
 
 ![image](https://user-images.githubusercontent.com/11904426/229339508-c42896ee-fcc7-4ae6-9d30-4177d9adb633.png)
 
-If you want to use Append Mode, add the field that you are targetting in the command. This will always be in the dropdown menu (Insert into Field).
-In the present example, a space will be added only if the ScanInformation field already contains a value. And if you don't want a space, can change it anything or a dot, or anything.
-So if ScanInformation contains "TONER" => "TONER 2598px" and if empty "2598px".
+To Append to an existing field, add the field that you are targetting into the command. This will always be in the dropdown menu (Insert into Field).
+In the present example, a space will be added only if the `ScanInformation` field already contains a value. And if you don't want a space, you can change it to anything you want, a dot, or anything.
+So if `ScanInformation` contains `TONER` => `TONER 2598px` and if `ScanInformation` is empty => `2598px`.
 
 ![image](https://user-images.githubusercontent.com/11904426/229339889-e217abe0-70a8-4131-865a-c2fbbc88caef.png)
 
-To have a new line between existing text, after inserting in the textbox just add a new line.
+To add a new line between existing text, just add it into the textbox by just adding a new line .
 
 ![image](https://user-images.githubusercontent.com/11904426/229339512-d1d665e6-179b-4781-bb61-7bee343250ce.png)
 
@@ -46,7 +46,7 @@ You can use any field, even if they are not in the dropdown menu, if a field doe
 
 P.S. When you click on Add, it will add the text to the last place where you placed your cursor.
 
-Some pages are already cached by ComicRack (Fast pages) which means that the resolution is already loaded in memory. Some pages aren't, which mean that for the pages that weren't cached, we need to load them in memory one by one (Slow Inspection). There is a config that is named % of Slow Inpsection, that will check which percentage of the slow pages (not cached) we should individually check, one by one. A higher percentage will be more precise, but since usually all the pages are the same resolution, using a low percentage will give you a faster result. I personally use a 25% setting and find it adequate.
+Some pages are already cached by ComicRack (Fast pages) which means that the resolution is already loaded in memory. Some pages aren't, which mean that for the pages that weren't cached, we need to load them in memory one by one (Slow Inspection). There is a config that is named % of Slow Inspection, that will check which percentage of the slow pages (not cached) we should individually check, one by one. A higher percentage will be more precise, but since usually all the pages are the same resolution, using a low percentage will give you a faster result. I personally use a 25% setting and find it adequate.
 
 ----
 
