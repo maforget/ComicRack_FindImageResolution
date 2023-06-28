@@ -62,8 +62,8 @@ namespace FindImageResolutionNET
 
         public class CurrentBook
         {
-            Book _CurrentBook;
-            int _CurrentBookIndex = 0;
+            Book currentBook;
+            int currentBookIndex = 0;
             BookImageResolution bookImageResolution;
 
             public CurrentBook()
@@ -76,7 +76,7 @@ namespace FindImageResolutionNET
             {
                 try
                 {
-                    if (_ComicRackApp == null || _Books?.Length <= 0 || _CurrentBookIndex >= _Books?.Length)
+                    if (_ComicRackApp == null || _Books?.Length <= 0 || currentBookIndex >= _Books?.Length)
                     {
                         _frmProgress?.Close();
                         return;
@@ -84,32 +84,32 @@ namespace FindImageResolutionNET
 
                     _frmProgress.Token.ThrowIfCancellationRequested();
 
-                    _CurrentBook = _Books[_CurrentBookIndex];
-                    if (_CurrentBook == null)
+                    currentBook = _Books[currentBookIndex];
+                    if (currentBook == null)
                         return;
 
-                    var bookSeries = _CurrentBook.Series;
-                    var bookShadowSeries = _CurrentBook.ShadowSeries;
+                    var bookSeries = currentBook.Series;
+                    var bookShadowSeries = currentBook.ShadowSeries;
                     var serie = string.IsNullOrEmpty(bookSeries) ? bookShadowSeries : bookSeries;
 
-                    var bookVolume = _CurrentBook.Volume;
-                    var bookShadowVolume = _CurrentBook.ShadowVolume;
+                    var bookVolume = currentBook.Volume;
+                    var bookShadowVolume = currentBook.ShadowVolume;
                     var volume = bookVolume <= -1 ? bookShadowVolume : bookVolume;
 
-                    var bookNumber = _CurrentBook.Number;
-                    var bookShadowNumber = _CurrentBook.ShadowNumber;
+                    var bookNumber = currentBook.Number;
+                    var bookShadowNumber = currentBook.ShadowNumber;
                     var number = string.IsNullOrEmpty(bookNumber) ? bookShadowNumber : bookNumber;
                     number = string.IsNullOrEmpty(number) ? volume.ToString() : number;
 
                     //Get the current book thumbnail
-                    var currentImage = _ComicRackApp.GetComicThumbnail(_CurrentBook, 0);
+                    var currentImage = _ComicRackApp.GetComicThumbnail(currentBook, 0);
                     _frmProgress.UpdateForm(currentImage, serie, number);
-                    SimpleLogger.Info($"Processing Book: {_CurrentBook.CaptionWithoutFormat}");
-                    SimpleLogger.Info($"Processing File: {_CurrentBook.FilePath}");
+                    SimpleLogger.Info($"Processing Book: {currentBook.CaptionWithoutFormat}");
+                    SimpleLogger.Info($"Processing File: {currentBook.FilePath}");
 
                     //Check Image Resolution
-                    if (_CurrentBook.IsLinked)
-                        Task.Run(() => bookImageResolution.FindResolution(_CurrentBook));
+                    if (currentBook.IsLinked)
+                        Task.Run(() => bookImageResolution.FindResolution(currentBook));
                 }
                 catch (OperationCanceledException e)
                 {
@@ -132,15 +132,15 @@ namespace FindImageResolutionNET
                     bool IsCustom = config.Custom;
                     string key = IsCustom ? config.CustomField : config.Field;
 
-                    if (!string.IsNullOrEmpty(key) && _CurrentBook.TryGetValue(config.Text, key, e, out string value))
+                    if (!string.IsNullOrEmpty(key) && currentBook.TryGetValue(config.Text, key, e, out string value))
                     {
-                        _CurrentBook.SetStringValue(key, value, IsCustom);
+                        currentBook.SetStringValue(key, value, IsCustom);
                         SimpleLogger.Info($"Setting value: \"{value}\" into {(IsCustom ? "custom field " : "")}{key}.");
                     }
                 }
 
                 //Increase Current Book Index & Process Next Book
-                _CurrentBookIndex++;
+                currentBookIndex++;
                 ProcessBook();
             }
         }
