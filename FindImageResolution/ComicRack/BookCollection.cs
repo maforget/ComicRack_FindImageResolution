@@ -18,7 +18,8 @@ namespace FindImageResolutionNET.ComicRack
             for (int i = 0; i < books.Length; i++)
             {
                 var book = new Book(books[i]);
-                collection.Add(book);
+                if (book != null && !string.IsNullOrEmpty(book.FilePath))
+                    collection.Add(book);
             }
         }
 
