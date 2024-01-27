@@ -1,4 +1,6 @@
-﻿# Find Image Resolution for ComicRack
+### You should consider using [ComicRack Community Edition](https://github.com/maforget/ComicRackCE). And if you can please contribute to the project.
+ 
+ # Find Image Resolution for ComicRack
 
 <p align="center">
     <b><u><span style='font-size:14.0pt'>👇 Download Links 👇</span></u></b>
